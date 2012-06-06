@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)http://html5slides.googlecode.com/svn/trunk/template/index.html#1 -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>D3.js</title>
+
+    <meta charset="utf-8">
+    <script src="./slides_files/jquery-1.7.2.min.js"></script>
+    <script src="./slides_files/slides.js"></script>
+    <script src="./slides_files/d3.v2.js"></script>
+    <!--<script src="./slides_files/population.js"></script>-->
+    <style>
+            /* Your individual styles here, or just use inline styles if that’s
+         what you want. */
+        .slides article {
+            background-image: none !important;
+            background-color: white;
+        }
+
+        .presentation_title {
+            margin-top: 200px;
+            font-size: 130px;
+            line-height: 75px;
+            margin-bottom: 55px;
+        }
+
+        .presentation_subtitle {
+            font-size: 40px;
+            margin-left: 6px;
+        }
+
+        article h1 {
+            font-size: 76px;
+            margin-bottom: 36px;
+        }
+
+        article h3 {
+            font-size: 36px;
+        }
+
+        article p {
+            font-size: 38px;
+            line-height: 42px;
+        }
+
+        .js-code {
+            display: none;
+        }
+
+        [data-code] {
+
+            font-size: 20px;
+            font-weight: normal;
+            padding: 14px 24px;
+            margin-right: 10px;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+            display: inline-block;
+            *display: inline;
+            padding: 4px 10px 4px;
+            margin-bottom: 0;
+            *margin-left: .3em;
+            font-size: 13px;
+            line-height: 18px;
+            *line-height: 20px;
+            color: #333333;
+            text-align: center;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            *background-color: #e6e6e6;
+            background-image: -ms-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+            background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+            background-repeat: repeat-x;
+            border: 1px solid #cccccc;
+            *border: 0;
+            border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+            border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+            border-bottom-color: #b3b3b3;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            filter: progid:dximagetransform.microsoft.gradient(startColorstr = '#ffffff', endColorstr = '#e6e6e6', GradientType = 0);
+            filter: progid:dximagetransform.microsoft.gradient(enabled = false);
+            *zoom: 1;
+            -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            font-size: 20px;
+            font-weight: normal;
+            padding: 14px 24px;
+            margin-right: 10px;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            border-radius: 6px;
+            margin-top: 24px;
+        }
+
+        #add-svg svg {
+            border:  1px solid #666;
+            background:  #ccc;
+            margin-top: 10px;
+        }
+
+    </style>
+    <meta name="viewport" content="width=1100,height=750">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+
+<script type="text/javascript">
+    $(function() {
+        var data = [
+            { stat:"strength", value:400 },
+            { stat:"dexterity", value:1000 },
+            { stat:"intelligence", value:450 },
+            { stat:"vitality", value:600 }
+        ];
+//        $("[data-code]").each(function() {
+//            var codeId = $(this).attr("data-code");
+//            var code = $("#" + codeId + "-js").html();
+//            $("#" + codeId + "-pretty").html(code);
+//        });
+        $("[data-code]").click(function() {
+            var codeId = $(this).attr("data-code");
+            var code = $("#" + codeId + "-js").html();
+            eval(code);
+        });
+    });
+</script>
+
+<body style="display: none" class="loaded">
+
+<section class="slides layout-regular template-default">
+
+<!-- Your slides (<article>s) go here. Delete or comment out the
+slides below. -->
+
+
+<article class="current">
+    <!--<h1 class="">Data-Driven Documents</h1>-->
+    <!--<p>d3.js</p>-->
+    <h1 class="presentation_title">D3.js</h1>
+
+    <p class="presentation_subtitle">Data-Driven Documents</p>
+
+    <p>Jonathan Birkholz 2012</p>
+</article>
+
+<article class="next">
+    <h1>What is D3?</h1>
+
+    <p>
+        <strong>D3</strong> is a JavaScript library for manipulating documents based on data.
+    </p>
+
+</article>
+
+<article class="far-next">
+    <h1>So charts?</h1>
+
+    <p>Yes... and no.</p>
+</article>
+
+<article>
+    <h3>
+        Yes, you can create regular charts...
+    </h3>
+
+    <p>
+        <img class="centered" style="height: 420px; margin-top:50px;" src="./slides_files/population_chart.png">
+    </p>
+
+    <div class="source">
+        Source: D3.js Sample; Population Pyramid
+    </div>
+</article>
+
+<article>
+    <h3>
+        But you can also create...
+    </h3>
+
+    <p>
+        <img class="centered" style="height: 420px; margin-top:50px;" src="./slides_files/dow_jones.png">
+    </p>
+
+    <div class="source">
+        Source: D3.js Sample; Dow Jones, 1995-2008
+    </div>
+</article>
+
+<article>
+    <h3>
+        Or create...
+    </h3>
+
+    <p>
+        <img class="centered" style="height: 420px; margin-top:50px;" src="./slides_files/flare_code_chart.png">
+    </p>
+
+    <div class="source">
+        Source: D3.js Sample; Flare Code Size
+    </div>
+</article>
+
+
+<article>
+    <h1>
+        Data drives DOM
+    </h1>
+
+    <p>
+        <strong>D3</strong> allows you to bind arbitrary data to a Document Object Model (DOM), and then apply
+        data-driven transformations to the document.
+    </p>
+
+    <div class="source">
+        Source: d3js.org
+    </div>
+</article>
+
+<article>
+    <h1>
+        Unbound Creativity
+    </h1>
+
+    <p>
+        <strong>D3</strong> is not a monolithic framework that seeks to provide every conceivable feature. Instead, D3
+        solves the crux of the problem: efficient manipulation of documents based on data.
+    </p>
+
+    <div class="source">
+        Source: d3js.org
+    </div>
+</article>
+
+<article>
+    <h1>
+        The Red Pill
+    </h1>
+
+    <p>
+        Taking a trip down the rabbit hole.
+    </p>
+</article>
+
+<article>
+    <h3>
+        Let's start with our data
+    </h3>
+    <pre class="prettyprint">
+            var data = [
+                { stat:"strength", value:400 },
+                { stat:"dexterity", value:1000 },
+                { stat:"intelligence", value:450 },
+                { stat:"vitality", value:600 }
+            ];
+    </pre>
+</article>
+
+<article>
+    <h3>
+        Making a Table
+    </h3>
+    <button data-code="make-table">Run</button>
+
+    <table id="make-table">
+    </table>
+    
+    <div id="make-table-js" class="js-code">
+        d3.select("#make-table")
+        .append("tr")
+        .selectAll("td")
+        .data(data)
+        .enter()
+        .append("td")
+        .text(function(d) {
+        return d.value;
+        });
+    </div>
+    <pre class="prettyprint" id="make-table-pretty">
+        d3.select("#make-table")
+        .append("tr")
+        .selectAll("td")
+        .data(data)
+        .enter()
+        .append("td")
+        .text(function(d) {
+            return d.value;
+        });
+    </pre>
+</article>
+
+<article>
+    <h3>
+        Add Headers
+    </h3>
+    <button data-code="make-table-with-headers">Run</button>
+
+    <table id="make-table-with-headers">
+    </table>
+
+    <div id="make-table-with-headers-js" class="js-code">
+        d3.select("#make-table-with-headers")
+        .append("tr")
+        .selectAll("th")
+        .data(data)
+        .enter()
+        .append("th")
+        .text(function(d) {
+            return d.stat;
+        });
+        
+        d3.select("#make-table-with-headers")
+        .append("tr")
+        .selectAll("td")
+        .data(data)
+        .enter()
+        .append("td")
+        .text(function(d) {
+        return d.value;
+        });
+    </div>
+    <pre class="prettyprint" id="make-table-with-headers-pretty">
+        d3.select("#make-table")
+        .append("tr")
+        .selectAll("th")
+        .data(data)
+        .enter()
+        .append("th")
+        .text(function(d) {
+            return d.stat;
+        });
+    </pre>
+</article>
+
+<article>
+    <h3>
+        Add SVG
+    </h3>
+    <button data-code="add-svg">Run</button>
+
+    <div id="add-svg">
+    </div>
+
+    <div id="add-svg-js" class="js-code">
+            var width = 500;
+            var height = 200;
+            var margin = 50;
+
+            var g = d3.select("#add-svg")
+                    .append("svg:svg")
+                    .attr("width", width + margin)
+                    .attr("height", height + margin)
+                    .append("svg:g");
+    </div>
+    <pre class="prettyprint">
+            var width = 500;
+            var height = 200;
+            var margin = 50;
+
+            var g = d3.select("#bar-chart")
+                    .append("svg:svg")
+                    .attr("width", width + margin)
+                    .attr("height", height + margin)
+                    .append("svg:g");
+    </pre>
+</article>
+
+<article>
+    <h3>Set linear X scale</h3>
+</article>
+
+<article>
+    <h3>Set ordinal Y scale</h3>
+</article>
+
+<article>
+    <h3>Add bars</h3>
+</article>
+
+<article>
+    <h3>Add bars</h3>
+</article>
+
+
+<article>
+    <q>
+        The best way to predict the future is to invent it.
+    </q>
+
+    <div class="author">
+        Alan Kay
+    </div>
+</article>
+
+<article class="smaller">
+    <q>
+        A distributed system is one in which the failure of a computer
+        you didn’t even know existed can render your own computer unusable.
+    </q>
+
+    <div class="author">
+        Leslie Lamport
+    </div>
+</article>
+
+<article class="nobackground">
+    <h3>
+        A slide with an embed + title
+    </h3>
+
+    <iframe src="about:blank"></iframe>
+</article>
+
+<article class="nobackground">
+    <iframe src="about:blank"></iframe>
+</article>
+
+<article class="fill">
+    <h3>
+        Full-slide embed with (optional) slide title on top
+    </h3>
+    <iframe src="about:blank"></iframe>
+</article>
+
+<article>
+    <h3>
+        Thank you!
+    </h3>
+
+    <ul>
+        <li>
+            <a href="http://www.google.com/">google.com</a>
+        </li>
+    </ul>
+</article>
+
+<div class="slide-area" id="prev-slide-area"></div>
+<div class="slide-area" id="next-slide-area"></div>
+</section>
+
+
+<link rel="stylesheet" type="text/css" href="./slides_files/css">
+<link rel="stylesheet" type="text/css" href="./slides_files/styles.css">
+<script type="text/javascript" src="./slides_files/prettify.js"></script>
+<style id="_clearly_component__css" type="text/css">#next_pages_container {
+    width: 5px;
+    hight: 5px;
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    z-index: 2147483647 !important;
+} </style>
+<div id="_clearly_component__next_pages_container"></div>
+</body>
+</html>

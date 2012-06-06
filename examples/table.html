@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>D3.js - Make Table</title>
+    <meta charset="utf-8">
+    <script src=".././slides_files/jquery-1.7.2.min.js"></script>
+    <script src=".././slides_files/d3.v2.js"></script>
+    <style>
+        #make-table {
+          border:  1px solid #ddd;
+        }
+        #make-table tr td {
+          border:  1px solid #ddd;
+        }
+    </style>
+<script type="text/javascript">
+    $(function() {
+        var data = [4, 8, 15, 16, 23, 42];
+        var td = d3.select("#make-table")
+          .append("tr")
+          .selectAll("td")
+          .data(data)
+          .enter()
+          .append("td")
+          .text(function(d) { return d; });
+    });
+</script>
+
+<body>
+    <table id="make-table"></table>
+</body>
+</html>

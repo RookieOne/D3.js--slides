@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>D3.js - Make Table</title>
+    <meta charset="utf-8">
+    <script src=".././slides_files/jquery-1.7.2.min.js"></script>
+    <script src=".././slides_files/d3.v2.js"></script>
+    <style>
+        #make-table {
+            border: 1px solid #ddd;
+        }
+
+        #make-table tr td {
+            border: 1px solid #ddd;
+        }
+
+        #bar-chart {
+            margin-top: 30px;
+        }
+
+        .strength {
+            fill: #9d261d;
+        }
+
+        .dexterity {
+            fill: #ffc40d;
+        }
+
+        .intelligence {
+            fill: #46a546;
+        }
+
+        .vitality {
+            fill: #049cbd;
+        }
+
+        .x-axis {
+            stroke: #000;
+        }
+
+        .tick {
+            stroke: #000;
+        }
+
+        .bar-label {
+            fill: #fff;
+            font-size: 14px;
+        }
+        .stat-label {
+            fill: #fff;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function() {
+            var data = [
+                { stat:"strength", value:400 },
+                { stat:"dexterity", value:1000 },
+                { stat:"intelligence", value:450 },
+                { stat:"vitality", value:600 }
+            ];
+
+            d3.select("#make-table")
+                    .append("tr")
+                    .selectAll("th")
+                    .data(data)
+                    .enter()
+                    .append("th")
+                    .text(function(d) {
+                        return d.stat;
+                    });
+
+            d3.select("#make-table")
+                    .append("tr")
+                    .selectAll("td")
+                    .data(data)
+                    .enter()
+                    .append("td")
+                    .text(function(d) {
+                        return d.value;
+                    });
+
+            var width = 500;
+            var height = 200;
+            var margin = 50;
+
+            var g = d3.select("#bar-chart")
+                    .append("svg:svg")
+                    .attr("width", width + margin)
+                    .attr("height", height + margin)
+                    .append("svg:g");
+            var max = 1000;
+            var barMargin = 10;
+            var barHeight = (height / 4) - barMargin;
+            var x = d3.scale.linear().domain([0, max]).range([leftMargin, width]);
+            var y = d3.scale.linear().domain([0, 3]).range([0, height - barHeight - barMargin]);
+
+            g.selectAll(".bars")
+                    .data(data)
+                    .enter()
+                    .append("svg:rect")
+                    .attr("x", x(0))
+                    .attr("y", function(d, i) {
+                        return y(i);
+                    })
+                    .attr("width", function(d) {
+                        return x(d.value) - leftMargin;
+                    })
+                    .attr("height", barHeight)
+                    .attr("class", function(d) {
+                        return "bars " + d.stat;
+                    });
+
+            // x-axis
+            g.append("svg:line")
+                    .attr("x1", x(0))
+                    .attr("x2", x(max))
+                    .attr("y1", height + 5)
+                    .attr("y2", height + 5)
+                    .attr("class", "x-axis");
+
+            g.selectAll("x-tick")
+                    .data(x.ticks(5))
+                    .enter()
+                    .append("svg:line")
+                    .attr("class", "tick")
+                    .attr("x1", function(d) {
+                        return x(d)
+                    })
+                    .attr("x2", function(d) {
+                        return x(d)
+                    })
+                    .attr("y1", height + 5)
+                    .attr("y2", height);
+
+            g.selectAll("x-tick-label")
+                    .data(x.ticks(5))
+                    .enter()
+                    .append("svg:text")
+                    .attr("class", "x-label")
+                    .text(function(d) {
+                        return d;
+                    })
+                    .attr("x", function(d) {
+                        return x(d);
+                    })
+                    .attr("y", height + 25)
+                    .attr("text-anchor", "middle");
+
+
+            g.selectAll("bar-label")
+                    .data(data)
+                    .enter()
+                    .append("svg:text")
+                    .text(function(d) {
+                        return d.stat;
+                    })
+                    .attr("class", "bar-label")
+                    .attr("x", function(d) {
+                        return 35;
+                    })
+                    .attr("y", function(d, i) {
+                        return y(i) + (barHeight / 2) + 5;
+                    });
+
+            g.selectAll(".stat-label")
+                    .data(data)
+                    .enter()
+                    .append("svg:text")
+                    .text(function(d) {
+                        return d.value;
+                    })
+                    .attr("class", "stat-label")
+                    .attr("x", function(d) {
+                        return x(d.value) - 35;
+                    })
+                    .attr("y", function(d, i) {
+                        return y(i) + (barHeight / 2) + 5;
+                    });
+
+            $("#change-chart").click(function() {
+                console.log("change");
+                data = [
+                    { stat:"strength", value:800 },
+                    { stat:"dexterity", value:300 },
+                    { stat:"intelligence", value:650 },
+                    { stat:"vitality", value:200 }
+                ];
+                var duration = 2500;
+                g.selectAll(".bars")
+                        .data(data)
+                        .transition()
+                        .duration(duration)
+                        .attr("width", function(d) {
+                            return x(d.value) - leftMargin;
+                        });
+                g.selectAll(".stat-label")
+                .data(data)
+                .transition()
+                .duration(duration)
+
+                                    .attr("x", function(d) {
+                        return x(d.value) - 35;
+                    });
+
+                g.selectAll(".stat-label")
+                .data(data)
+                .transition().delay(duration)
+                .text(function(d) {
+                        return d.value;
+                    });
+
+            });
+        });
+
+    </script>
+
+<body>
+<table id="make-table"></table>
+<button id="change-chart">Change</button>
+<div id="bar-chart"></div>
+</body>
+</html>
