@@ -35,7 +35,7 @@
       <file leaf-file-name="slides.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/slides.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="361" column="10" selection-start="10915" selection-end="10915" vertical-scroll-proportion="0.11884058">
+            <state line="862" column="24" selection-start="23246" selection-end="23246" vertical-scroll-proportion="0.027536232">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="bars.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/bars.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="25" selection-start="3829" selection-end="3829" vertical-scroll-proportion="-10.178572">
+            <state line="134" column="25" selection-start="3829" selection-end="3829" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -140,7 +140,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -183,7 +183,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -230,14 +230,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1436" height="878" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17231435" sideWeight="0.9523077" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17519827" sideWeight="0.9523077" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -323,11 +323,16 @@
         <state line="98" column="0" selection-start="1943" selection-end="2122" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/gears.html">
+    <entry file="file://$PROJECT_DIR$/slides.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="6" selection-start="111" selection-end="161" vertical-scroll-proportion="0.0">
+        <state line="862" column="24" selection-start="23246" selection-end="23246" vertical-scroll-proportion="0.027536232">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/gears.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="6" selection-start="111" selection-end="161" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/slides_files/d3.v2.js">
@@ -337,28 +342,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/usa.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="4" selection-start="230" selection-end="280" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="7" column="4" selection-start="230" selection-end="280" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/table.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="9" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="9" column="9" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/examples/bars.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="25" selection-start="3829" selection-end="3829" vertical-scroll-proportion="-10.178572">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/slides.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="361" column="10" selection-start="10915" selection-end="10915" vertical-scroll-proportion="0.11884058">
+        <state line="134" column="25" selection-start="3829" selection-end="3829" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

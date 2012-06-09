@@ -280,7 +280,7 @@
             })
             .attr("class", "bar-label")
             .attr("x", function(d) {
-                return 35;
+                return x(15);
             })
             .attr("y", function(d, i) {
                 return y(i) + (barHeight / 2) + 5;
@@ -860,7 +860,7 @@ slides below. -->
         })
         .attr("class", "bar-label")
         .attr("x", function(d) {
-            return 35;
+            return x(15);
         })
         .attr("y", function(d, i) {
             return y(i) + (barHeight / 2) + 5;
@@ -896,11 +896,12 @@ slides below. -->
         })
         .attr("class", "stat-label")
         .attr("x", function(d) {
-            return x(d.value) - 35;
+            return x(d.value) - 10;
         })
         .attr("y", function(d, i) {
             return y(i) + (barHeight / 2) + 5;
-        });
+        })
+        .attr("text-anchor", "end");
     </pre>
 </article>
 
@@ -941,7 +942,7 @@ slides below. -->
         .transition()
         .duration(duration)
         .attr("width", function(d) {
-            return x(d.value) - leftMargin;
+            return x(d.value) - margin;
         });
     </pre>
 </article>
