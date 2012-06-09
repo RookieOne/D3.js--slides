@@ -32,10 +32,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="slides.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="slides.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/slides.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="994" column="31" selection-start="27181" selection-end="27181" vertical-scroll-proportion="-2.7142856">
+            <state line="361" column="10" selection-start="10915" selection-end="10915" vertical-scroll-proportion="0.11884058">
               <folding />
             </state>
           </provider>
@@ -77,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bars.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="bars.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/examples/bars.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="25" selection-start="3829" selection-end="3829" vertical-scroll-proportion="0.4054054">
+            <state line="134" column="25" selection-start="3829" selection-end="3829" vertical-scroll-proportion="-10.178572">
               <folding />
             </state>
           </provider>
@@ -109,8 +109,8 @@
         <option value="$PROJECT_DIR$/examples/gears.html" />
         <option value="$PROJECT_DIR$/examples/flare.json" />
         <option value="$PROJECT_DIR$/examples/pack.html" />
-        <option value="$PROJECT_DIR$/slides.html" />
         <option value="$PROJECT_DIR$/examples/bars.html" />
+        <option value="$PROJECT_DIR$/slides.html" />
       </list>
     </option>
   </component>
@@ -349,16 +349,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/slides.html">
+    <entry file="file://$PROJECT_DIR$/examples/bars.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="994" column="31" selection-start="27181" selection-end="27181" vertical-scroll-proportion="-2.7142856">
+        <state line="134" column="25" selection-start="3829" selection-end="3829" vertical-scroll-proportion="-10.178572">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/bars.html">
+    <entry file="file://$PROJECT_DIR$/slides.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="25" selection-start="3829" selection-end="3829" vertical-scroll-proportion="0.4054054">
+        <state line="361" column="10" selection-start="10915" selection-end="10915" vertical-scroll-proportion="0.11884058">
           <folding />
         </state>
       </provider>
