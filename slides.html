@@ -9,6 +9,7 @@
     <script src="./slides_files/jquery-1.7.2.min.js"></script>
     <script src="./slides_files/slides.js"></script>
     <script src="./slides_files/d3.v2.js"></script>
+    <script src="./slides_files/underscore-1.3.1.js"></script>
     <!--<script src="./slides_files/population.js"></script>-->
     <style>
             /* Your individual styles here, or just use inline styles if that’s
@@ -48,7 +49,7 @@
             display: none;
         }
 
-        [data-code] {
+        button {
 
             font-size: 20px;
             font-weight: normal;
@@ -103,10 +104,62 @@
             margin-top: 24px;
         }
 
-        #add-svg svg {
-            border:  1px solid #666;
-            background:  #ccc;
+        .data-table {
+            text-align: center;
+        }
+        .data-table tr th {
+            text-align: center;
+        }
+
+        .bar-chart {
+            display: none;
             margin-top: 10px;
+            border: 1px solid #666;
+        }
+
+        .strength {
+            fill: #9d261d;
+        }
+
+        .dexterity {
+            fill: #ffc40d;
+        }
+
+        .intelligence {
+            fill: #46a546;
+        }
+
+        .vitality {
+            fill: #049cbd;
+        }
+        .x-axis {
+            stroke: #000;
+        }
+        .tick {
+            stroke: #000;
+        }
+        .x-label {
+            font-size: 16px;
+        }
+        .bar-label {
+            fill: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .stat-label {
+            fill: #fff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .large-example-frame {
+            height: 500px;
+        }
+        .example-frame {
+            height: 300px;
+        }
+        .map-code {
+            margin-bottom: 10px;
+            padding-bottom: 0px;
         }
 
     </style>
@@ -115,13 +168,168 @@
 </head>
 
 <script type="text/javascript">
+    var data = [
+        { stat:"strength", value:400 },
+        { stat:"dexterity", value:1000 },
+        { stat:"intelligence", value:450 },
+        { stat:"vitality", value:600 }
+    ];
+    var transitionData = {
+        "barb": [{ stat:"strength", value:900 },
+                 { stat:"dexterity", value:400 },
+                 { stat:"intelligence", value: 250 },
+                 { stat:"vitality", value:800 }],
+        "monk": [{ stat:"strength", value:200 },
+                 { stat:"dexterity", value:850 },
+                 { stat:"intelligence", value:250 },
+                 { stat:"vitality", value:600 }],
+        "wiz": [{ stat:"strength", value:330 },
+                 { stat:"dexterity", value:230 },
+                 { stat:"intelligence", value:990 },
+                 { stat:"vitality", value:300 }],
+        "witch": [{ stat:"strength", value:200 },
+                 { stat:"dexterity", value:470 },
+                 { stat:"intelligence", value:880 },
+                 { stat:"vitality", value:650 }]
+    };
+
+    var width = 730;
+    var height = 300;
+    var margin = 30;
+    var barMargin = 10;
+    var chartHeight = height - (margin * 2);
+    var barHeight = (chartHeight / 4) - barMargin;
+    var max = 1000;
+    
+    var addChart = function(slideId) {
+        $(slideId + " .bar-chart").show();
+        return d3.select(slideId + " .bar-chart")
+                .append("svg:svg")
+                .attr("width", width + margin)
+                .attr("height", height + margin)
+                .append("svg:g");
+    };
+
+    var x = d3.scale.linear().domain([0, max]).range([margin, width]);
+    var y = d3.scale.linear().domain([0, 3]).range([margin, height - barHeight - barMargin]);
+        
+    var addBars = function(g) {
+        g.selectAll(".bars")
+            .data(data)
+            .enter()
+            .append("svg:rect")
+            .attr("class", function(d) {
+                return "bars " + d.stat;
+            })
+            .attr("x", x(0))
+            .attr("y", function(d, i) {
+                return y(i);
+            })
+            .attr("width", function(d) {
+                return x(d.value) - margin;
+            })
+            .attr("height", barHeight);
+    };
+    var addXAxis = function(g) {
+        g.append("svg:line")
+            .attr("x1", x(0))
+            .attr("x2", x(max))
+            .attr("y1", height + 5)
+            .attr("y2", height + 5)
+            .attr("class", "x-axis");
+    };
+    var addXTicks = function(g) {
+        g.selectAll("x-tick")
+                .data(x.ticks(5))
+                .enter()
+                .append("svg:line")
+                .attr("class", "tick")
+                .attr("x1", function(d) {
+                    return x(d)
+                })
+                .attr("x2", function(d) {
+                    return x(d)
+                })
+                .attr("y1", height + 5)
+                .attr("y2", height);
+    }
+
+    var addXLabels = function(g) {
+        g.selectAll("x-label")
+            .data(x.ticks(5))
+            .enter()
+            .append("svg:text")
+            .attr("class", "x-label")
+            .text(function(d) {
+                return d;
+            })
+            .attr("x", function(d) {
+                return x(d);
+            })
+            .attr("y", height + 25)
+            .attr("text-anchor", "middle");
+    }
+
+    var addBarLabels = function(g) {
+        g.selectAll("bar-label")
+            .data(data)
+            .enter()
+            .append("svg:text")
+            .text(function(d) {
+                return d.stat;
+            })
+            .attr("class", "bar-label")
+            .attr("x", function(d) {
+                return 35;
+            })
+            .attr("y", function(d, i) {
+                return y(i) + (barHeight / 2) + 5;
+            });
+    }
+
+    var addStatLabels = function(g) {
+        g.selectAll(".stat-label")
+            .data(data)
+            .enter()
+            .append("svg:text")
+            .text(function(d) {
+                return d.value;
+            })
+            .attr("class", "stat-label")
+            .attr("x", function(d) {
+                return x(d.value) - 10;
+            })
+            .attr("y", function(d, i) {
+                return y(i) + (barHeight / 2) + 5;
+            })
+            .attr("text-anchor", "end");
+    }
+
+    var duration = 2000;
+    var transitionBars = function(g, data) {
+        g.selectAll(".bars")
+            .data(data)
+            .transition()
+            .duration(duration)
+            .attr("width", function(d) {
+                return x(d.value) - margin;
+            });
+    }
+    var transitionStatLabels = function(g, data) {
+        g.selectAll(".stat-label")
+        .data(data)
+        .transition()
+        .duration(duration)
+        .attr("x", function(d) {
+            return x(d.value) - 10;
+        })
+        .text(function(d) {
+                return d.value;
+        });
+    }
+
     $(function() {
-        var data = [
-            { stat:"strength", value:400 },
-            { stat:"dexterity", value:1000 },
-            { stat:"intelligence", value:450 },
-            { stat:"vitality", value:600 }
-        ];
+
 //        $("[data-code]").each(function() {
 //            var codeId = $(this).attr("data-code");
 //            var code = $("#" + codeId + "-js").html();
@@ -151,6 +359,11 @@ slides below. -->
     <p class="presentation_subtitle">Data-Driven Documents</p>
 
     <p>Jonathan Birkholz 2012</p>
+</article>
+
+<article>
+    <h1>Cross Site WTF?!</h1>
+    <p>> python -m SimpleHTTPServer 8888 &</p>
 </article>
 
 <article class="next">
@@ -242,6 +455,10 @@ slides below. -->
 </article>
 
 <article>
+    <h3>D3.js Gears</h3>
+    <iframe src="examples/gears.html" class="large-example-frame"></iframe>
+</article>
+<article>
     <h1>
         The Red Pill
     </h1>
@@ -273,7 +490,7 @@ slides below. -->
 
     <table id="make-table">
     </table>
-    
+
     <div id="make-table-js" class="js-code">
         d3.select("#make-table")
         .append("tr")
@@ -315,9 +532,9 @@ slides below. -->
         .enter()
         .append("th")
         .text(function(d) {
-            return d.stat;
+        return d.stat;
         });
-        
+
         d3.select("#make-table-with-headers")
         .append("tr")
         .selectAll("td")
@@ -342,105 +559,576 @@ slides below. -->
 </article>
 
 <article>
+    <h1>D3 is more than a charting library</h1>
+    <p>... now let's make a chart</p>
+</article>
+
+<script type="text/javascript">
+    $(function() {
+        $("#add-svg button").click(function() {
+            addChart("#add-svg");
+        });
+    })
+</script>
+<article id="add-svg">
     <h3>
         Add SVG
     </h3>
-    <button data-code="add-svg">Run</button>
+    <button>Run</button>
 
-    <div id="add-svg">
+    <div class="bar-chart">
     </div>
 
-    <div id="add-svg-js" class="js-code">
-            var width = 500;
-            var height = 200;
-            var margin = 50;
-
-            var g = d3.select("#add-svg")
-                    .append("svg:svg")
-                    .attr("width", width + margin)
-                    .attr("height", height + margin)
-                    .append("svg:g");
-    </div>
     <pre class="prettyprint">
-            var width = 500;
-            var height = 200;
-            var margin = 50;
+    var g = d3.select("#bar-chart")
+            .append("svg:svg")
+            .attr("width", width + margin)
+            .attr("height", height + margin)
+            .append("svg:g");
+    </pre>
+</article>
 
-            var g = d3.select("#bar-chart")
-                    .append("svg:svg")
-                    .attr("width", width + margin)
-                    .attr("height", height + margin)
-                    .append("svg:g");
+<script type="text/javascript">
+    $(function() {
+        $("#set-x-scale button").click(function() {
+            var values = [0,33,50,68,100];
+            var min = $(this).attr("data-scale-min");
+            var max = $(this).attr("data-scale-max");
+
+            var x = d3.scale.linear().domain([0, 100]).range([min, max]);
+
+            var $table = $("#set-x-scale table");
+            $table.empty();
+            var headers = "<tr>";
+            var cells = "<tr>";
+            _.each(values, function(v) {
+                headers = headers + "<th>" + v + "</th>";
+                cells = cells + "<td>" + Math.round(x(v) * 100) / 100 + "</td>";
+            });
+            headers = headers + "</tr>";
+            cells = cells + "</tr>";
+            $table.append(headers + cells);
+
+        });
+    });
+</script>
+<article id="set-x-scale">
+    <h3>Set linear X scale</h3>
+    <button data-scale-min="0" data-scale-max="10">0-10</button>
+    <button data-scale-min="0" data-scale-max="1000">0-1000</button>
+    <button data-scale-min="0" data-scale-max="35">0-35</button>
+    <button data-scale-min="30" data-scale-max="50">30-50</button>
+    <table class="data-table">
+    </table>
+    <pre class="prettyprint">
+    var x = d3.scale.linear()
+        .domain([0, 100])
+        .range([min, max]);
+        
+    var range_value = x(domain_value);
+    var pixel_x = x(domain_value);
+    </pre>
+</article>
+
+<script type="text/javascript">
+    $(function() {
+        $("#set-y-scale button").click(function() {
+            console.log("test");
+            var values = {
+                "colors": ["red","yellow", "green", "blue", "purple"],
+                "captains": ["Archer", "Kirk", "Picard", "Sisko", "Janeway"],
+                "stats": ["strength", "dexterity", "intelligence", "vitality", "armor"]
+            };
+            var cat = $(this).attr("data-scale-cats");
+            var domainValues = values[cat];
+
+            var y = d3.scale.ordinal().domain(domainValues).range([5,7,9,13,23]);
+
+            var $table = $("#set-y-scale table");
+            $table.empty();
+            var headers = "<tr>";
+            var cells = "<tr>";
+            _.each(domainValues, function(v) {
+                headers = headers + "<th>" + v + "</th>";
+                cells = cells + "<td>" + y(v) + "</td>";
+            });
+            headers = headers + "</tr>";
+            cells = cells + "</tr>";
+            $table.append(headers + cells);
+
+        });
+    });
+</script>
+<article id="set-y-scale">
+    <h3>Set ordinal Y scale</h3>
+    <button data-scale-cats="colors">colors</button>
+    <button data-scale-cats="captains">captains</button>
+    <button data-scale-cats="stats">stats</button>
+    <table class="data-table">
+    </table>
+    <pre class="prettyprint">
+    var y = d3.scale.ordinal()
+        .domain([categories])
+        .range([5,7,9,13,23]);
+        
+    var range_value = y(category);
+    var pixel_y = y(category);
+    </pre>
+</article>
+
+<script type="text/javascript">
+    $(function() {
+        $("#add-bars button").click(function() {
+            var g = addChart("#add-bars");
+            
+            g.selectAll(".bars")
+                    .data(data)
+                    .enter()
+                    .append("svg:rect")
+                    .attr("x", x(0))
+                    .attr("y", function(d, i) {
+                        return y(i);
+                    })
+                    .attr("width", function(d) {
+                        return x(d.value) - margin;
+                    })
+                    .attr("height", barHeight);
+
+        });
+    });
+</script>
+<article id="add-bars">
+    <h3>Add bars</h3>
+    <button>Run</button>
+    <div class="bar-chart"></div>
+    <pre class="prettyprint">
+    g.selectAll(".bars")
+        .data(data)
+        .enter()
+        .append("svg:rect")
+        .attr("x", x(0))
+        .attr("y", function(d, i) {
+            return y(i);
+        })
+        .attr("width", function(d) {
+            return x(d.value) - margin;
+        })
+        .attr("height", barHeight);
+    </pre>
+</article>
+
+<script type="text/javascript">
+    $(function() {
+        $("#add-classes button").click(function() {
+            var g = addChart("#add-classes");
+            addBars(g);
+        });
+    });
+</script>
+<article id="add-classes">
+    <h3>Add classes</h3>
+    <button>Run</button>
+    <div class="bar-chart"></div>
+    <pre class="prettyprint">
+    g.selectAll(".bars")
+        .data(data)
+        .enter()
+        .append("svg:rect")
+        .attr("class", function(d) {
+            return "bars " + d.stat;
+        })
+        .attr("x", x(0))
+        .attr("y", function(d, i) {
+            return y(i);
+        })
+        .attr("width", function(d) {
+            return x(d.value) - margin;
+        })
+        .attr("height", barHeight);
+    </pre>
+</article>
+
+
+<script type="text/javascript">
+    $(function() {
+        $("#x-axis button").click(function() {
+            var g = addChart("#x-axis");
+            addBars(g);
+            addXAxis(g);
+        });
+    });
+</script>
+<article id="x-axis">
+    <h3>X-Axis</h3>
+    <button>Run</button>
+    <div class="bar-chart"></div>
+    <pre class="prettyprint">
+    // x-axis
+    g.append("svg:line")
+        .attr("x1", x(0))
+        .attr("x2", x(max))
+        .attr("y1", height + 5)
+        .attr("y2", height + 5)
+        .attr("class", "x-axis");
+    </pre>
+</article>
+
+<script type="text/javascript">
+    $(function() {
+        $("#x-ticks button").click(function() {
+            var g = addChart("#x-ticks");
+            addBars(g);
+            addXAxis(g);
+            addXTicks(g);
+        });
+    });
+</script>
+<article id="x-ticks">
+    <h3>X-Ticks</h3>
+    <button>Run</button>
+    <div class="bar-chart"></div>
+    <pre class="prettyprint">
+    // x-ticks
+    g.selectAll("x-tick")
+        .data(x.ticks(5))
+        .enter()
+        .append("svg:line")
+        .attr("class", "tick")
+        .attr("x1", function(d) {
+            return x(d)
+        })
+        .attr("x2", function(d) {
+            return x(d)
+        })
+        .attr("y1", height + 5)
+        .attr("y2", height);
+    </pre>
+</article>
+
+<script type="text/javascript">
+    $(function() {
+        $("#x-labels button").click(function() {
+            var g = addChart("#x-labels");
+            addBars(g);
+            addXAxis(g);
+            addXTicks(g);
+            addXLabels(g);
+        });
+    });
+</script>
+<article id="x-labels">
+    <h3>X-Labels</h3>
+    <button>Run</button>
+    <div class="bar-chart"></div>
+    <pre class="prettyprint">
+    // x-labels
+    g.selectAll("x-label")
+        .data(x.ticks(5))
+        .enter()
+        .append("svg:text")
+        .attr("class", "x-label")
+        .text(function(d) {
+            return d;
+        })
+        .attr("x", function(d) {
+            return x(d);
+        })
+        .attr("y", height + 25)
+        .attr("text-anchor", "middle");
+    </pre>
+</article>
+
+<script type="text/javascript">
+    $(function() {
+        $("#bar-labels button").click(function() {
+            var g = addChart("#bar-labels");
+            addBars(g);
+            addXAxis(g);
+            addXTicks(g);
+            addXLabels(g);
+            addBarLabels(g);
+        });
+    });
+</script>
+<article id="bar-labels">
+    <h3>Bar Labels</h3>
+    <button>Run</button>
+    <div class="bar-chart"></div>
+    <pre class="prettyprint">
+    // bar labels
+    g.selectAll("bar-label")
+        .data(data)
+        .enter()
+        .append("svg:text")
+        .text(function(d) {
+            return d.stat;
+        })
+        .attr("class", "bar-label")
+        .attr("x", function(d) {
+            return 35;
+        })
+        .attr("y", function(d, i) {
+            return y(i) + (barHeight / 2) + 5;
+        });
+    </pre>
+</article>
+
+<script type="text/javascript">
+    $(function() {
+        $("#stat-labels button").click(function() {
+            var g = addChart("#stat-labels");
+            addBars(g);
+            addXAxis(g);
+            addXTicks(g);
+            addXLabels(g);
+            addBarLabels(g);
+            addStatLabels(g);
+        });
+    });
+</script>
+<article id="stat-labels">
+    <h3>Stat Labels</h3>
+    <button>Run</button>
+    <div class="bar-chart"></div>
+    <pre class="prettyprint">
+    // stat labels
+    g.selectAll(".stat-label")
+        .data(data)
+        .enter()
+        .append("svg:text")
+        .text(function(d) {
+            return d.value;
+        })
+        .attr("class", "stat-label")
+        .attr("x", function(d) {
+            return x(d.value) - 35;
+        })
+        .attr("y", function(d, i) {
+            return y(i) + (barHeight / 2) + 5;
+        });
+    </pre>
+</article>
+
+<script type="text/javascript">
+    $(function() {
+        $("#transition button[data-set=start]").click(function() {
+            $("#transition button").fadeIn();
+            $(this).fadeOut();
+            var g = addChart("#transition");
+            addBars(g);
+            addXAxis(g);
+            addXTicks(g);
+            addXLabels(g);
+            addBarLabels(g);
+            addStatLabels(g);
+
+            $("#transition button").click(function() {
+                var dataSet = $(this).attr("data-set");
+                var newData = transitionData[dataSet];
+                transitionBars(g, newData);
+            });
+        });
+    });
+</script>
+<article id="transition">
+    <h3>Transitions</h3>
+    <button data-set="start">Start</button>
+    <button data-set="barb" style="display:none">Barbarian</button>
+    <button data-set="monk" style="display:none">Monk</button>
+    <button data-set="wiz" style="display:none">Wizard</button>
+    <button data-set="witch" style="display:none">Witch Doctor</button>
+    <div class="bar-chart"></div>
+    <pre class="prettyprint">
+    // transition bars
+    var duration = 2000;
+    g.selectAll(".bars")
+        .data(data)
+        .transition()
+        .duration(duration)
+        .attr("width", function(d) {
+            return x(d.value) - leftMargin;
+        });
+    </pre>
+</article>
+
+<script type="text/javascript">
+    $(function() {
+        $("#transition-labels button[data-set=start]").click(function() {
+            $("#transition-labels button").fadeIn();
+            $(this).fadeOut();
+            var g = addChart("#transition-labels");
+            addBars(g);
+            addXAxis(g);
+            addXTicks(g);
+            addXLabels(g);
+            addBarLabels(g);
+            addStatLabels(g);
+
+            $("#transition-labels button").click(function() {
+                var dataSet = $(this).attr("data-set");
+                var newData = transitionData[dataSet];
+                transitionBars(g, newData);
+                transitionStatLabels(g, newData);
+            });
+        });
+    });
+</script>
+<article id="transition-labels">
+    <h3>Transition Labels</h3>
+    <button data-set="start">Start</button>
+    <button data-set="barb" style="display:none">Barbarian</button>
+    <button data-set="monk" style="display:none">Monk</button>
+    <button data-set="wiz" style="display:none">Wizard</button>
+    <button data-set="witch" style="display:none">Witch Doctor</button>
+    <div class="bar-chart"></div>
+    <pre class="prettyprint">
+    // transition stat labels
+    var duration = 2000;
+    g.selectAll(".stat-label")
+        .data(data)
+        .transition()
+        .duration(duration)
+        .attr("x", function(d) {
+            return x(d.value) - 10;
+        })
+        .text(function(d) {
+                return d.value;
+        });
     </pre>
 </article>
 
 <article>
-    <h3>Set linear X scale</h3>
+    <h1>Examples</h1>
+    <ul>
+        <li><a href="http://mbostock.github.com/d3/ex/bullet.html" target="_blank">Bullet Charts</a></li>
+        <li><a href="http://bl.ocks.org/1256572" target="_blank">Show Reel</a></li>
+        <li><a href="http://mbostock.github.com/d3/talk/20111116/airports.html" target="_blank">Airports</a></li>
+        <li><a href="http://mbostock.github.com/d3/talk/20111018/choropleth.html" target="_blank">Unemployment Map</a></li>
+    </ul>
 </article>
 
 <article>
-    <h3>Set ordinal Y scale</h3>
-</article>
-
-<article>
-    <h3>Add bars</h3>
-</article>
-
-<article>
-    <h3>Add bars</h3>
-</article>
-
-
-<article>
-    <q>
-        The best way to predict the future is to invent it.
-    </q>
-
-    <div class="author">
-        Alan Kay
+    <h3>United States in SVG</h3>
+    <br />
+    <iframe src="examples/usa.html" class="large-example-frame"></iframe>
+    <div class="source">
+        http://en.wikipedia.org/wiki/File:Blank_US_Map.svg
     </div>
+</article>
+
+<article>
+    <h3>Our Simple Data</h3>
+    <pre class="prettyprint">
+    var data = [
+        { state:"TX", value:65 },
+        { state:"WA", value:54 },
+        { state:"CA", value:25 },
+        { state:"CO", value:35 },
+        { state:"AL", value:72 },
+        { state:"FL", value:13 },
+        { state:"OK", value:22 },
+        { state:"OH", value:69 },
+        { state:"MI", value:54 },
+        { state:"VA", value:38 },
+        { state:"MS", value:43 },
+        { state:"GA", value:49 },
+        { state:"NY", value:90 }
+    ];
+    </pre>
 </article>
 
 <article class="smaller">
-    <q>
-        A distributed system is one in which the failure of a computer
-        you didn’t even know existed can render your own computer unusable.
-    </q>
-
-    <div class="author">
-        Leslie Lamport
-    </div>
+    <h3>Set Opacity to States</h3>
+    <pre class="prettyprint map-code">
+    var opacity = d3.scale.linear().domain([0,100]).range([.5, 1]);
+    _.each(data, function(d) {
+        d3.selectAll("#" + d.state)
+                .attr("style", "")
+                .attr("class", "default-style")
+                .attr("opacity", opacity(d.value))
+                .attr("fill", "#0000FF");
+    });
+    </pre>
+    <iframe src="examples/usa.html#opacity" class="example-frame"></iframe>
 </article>
 
-<article class="nobackground">
-    <h3>
-        A slide with an embed + title
-    </h3>
-
-    <iframe src="about:blank"></iframe>
+<article class="smaller">
+    <h3>Set Color to States</h3>
+    <pre class="prettyprint map-code">
+    var color = d3.scale.linear().domain([0,100]).range(["#000000", "#0000FF"]);
+    _.each(data, function(d) {
+        d3.selectAll("#" + d.state)
+                .attr("style", "")
+                .attr("class", "default-style")
+                .attr("opacity", 1)
+                .attr("fill", color(d.value));
+    });
+    </pre>
+    <iframe src="examples/usa.html#color" class="example-frame"></iframe>
 </article>
 
-<article class="nobackground">
-    <iframe src="about:blank"></iframe>
-</article>
-
-<article class="fill">
-    <h3>
-        Full-slide embed with (optional) slide title on top
-    </h3>
-    <iframe src="about:blank"></iframe>
+<article class="smaller">
+    <h3>Using Color Brewer</h3>
+    <pre class="prettyprint map-code ">
+var color = d3.scale.ordinal().domain([0,100]).range(colorbrewer.Blues[9]);
+_.each(data, function(d) {
+    d3.selectAll("#" + d.state)
+            .attr("style", "")
+            .attr("class", "default-style")
+            .attr("opacity", 1)
+            .attr("fill", color(d.value));
+});
+    </pre>
+    <iframe src="examples/usa.html#brewer" class="example-frame"></iframe>
 </article>
 
 <article>
-    <h3>
-        Thank you!
-    </h3>
+    <h1>Final Comments</h1>
+</article>
 
+<article>
+    <h1>80/20</h1>
+    <p>80% of the chart will be done in 20% of the time.</p>
+    <p>The last 20% of work getting the chart awesome will take 80% of your time.</p>
+</article>
+
+<article>
+    <h1>Good Workflow</h1>
+    <ol>
+        <li>Create visual with mock data in separate html file</li>
+        <li>Finalize data format</li>
+        <li>Test your components output data in correct format</li>
+        <li>Wire your data to your visual</li>
+    </ol>
+</article>
+
+<article>
+    <h1>Lines of Code</h1>
     <ul>
-        <li>
-            <a href="http://www.google.com/">google.com</a>
-        </li>
-    </ul>
+        <li>D3 can result in a large number of lines of code</li>
+        <li>But the code is simple once you understand the pattern.</li>
+       </ul>
+</article>
+<article>
+    <h1>Yes I can do that</h1>
+    <p>Isn't it nice telling clients and designers yes?</p>
+    <p>Other charting libraries might get a chart out faster but few can compete with d3's flexibility.</p>
+</article>
+
+<article>
+    <h1>D3.js</h1>
+    <p><a href="http://d3js.org/">http://d3js.org/</a></p>
+    <p><a href="https://github.com/mbostock/d3">https://github.com/mbostock/d3</a></p>
+</article>
+
+<article>
+    <h1>Slides</h1>
+    <p><a href="#">Github repo</a></p>
+</article>
+
+<article>
+    <!--<h1>El Fin</h1>-->
+    <h1>Questions?</h1>
 </article>
 
 <div class="slide-area" id="prev-slide-area"></div>

@@ -32,19 +32,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="slides.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="slides.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/slides.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="233" column="6" selection-start="6660" selection-end="6660" vertical-scroll-proportion="0.4864865">
+            <state line="994" column="31" selection-start="27181" selection-end="27181" vertical-scroll-proportion="-2.7142856">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bars.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/bars.html">
+      <file leaf-file-name="gears.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/gears.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="0" selection-start="1976" selection-end="2289" vertical-scroll-proportion="-7.071429">
+            <state line="5" column="6" selection-start="111" selection-end="161" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -54,6 +54,33 @@
         <entry file="file://$PROJECT_DIR$/slides_files/d3.v2.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="9381" column="5" selection-start="254423" selection-end="254423" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="usa.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/usa.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="4" selection-start="230" selection-end="280" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="table.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/examples/table.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="9" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bars.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/examples/bars.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="134" column="25" selection-start="3829" selection-end="3829" vertical-scroll-proportion="0.4054054">
               <folding />
             </state>
           </provider>
@@ -74,8 +101,16 @@
         <option value="$PROJECT_DIR$/slides_files/d3.v2.js" />
         <option value="$PROJECT_DIR$/slides_files/jquery-1.7.2.min.js" />
         <option value="$PROJECT_DIR$/examples/table.html" />
-        <option value="$PROJECT_DIR$/examples/bars.html" />
+        <option value="$PROJECT_DIR$/examples/usa.svg" />
+        <option value="$PROJECT_DIR$/examples/usa2.svg" />
+        <option value="$PROJECT_DIR$/slides_files/colorbrewer.css" />
+        <option value="$PROJECT_DIR$/slides_files/colorbrewer.js" />
+        <option value="$PROJECT_DIR$/examples/usa.html" />
+        <option value="$PROJECT_DIR$/examples/gears.html" />
+        <option value="$PROJECT_DIR$/examples/flare.json" />
+        <option value="$PROJECT_DIR$/examples/pack.html" />
         <option value="$PROJECT_DIR$/slides.html" />
+        <option value="$PROJECT_DIR$/examples/bars.html" />
       </list>
     </option>
   </component>
@@ -105,7 +140,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -148,11 +183,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
@@ -193,7 +229,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="2556" height="878" extended-state="6" />
+    <frame x="0" y="22" width="1436" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -201,7 +237,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.093737535" sideWeight="0.84692305" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17231435" sideWeight="0.9523077" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -272,14 +308,24 @@
         <state line="3" column="29604" selection-start="94839" selection-end="94839" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/slides_files/colorbrewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="1181" selection-start="0" selection-end="25225" vertical-scroll-proportion="0.46820349" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slides_files/colorbrewer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1326" column="35" selection-start="46742" selection-end="46742" vertical-scroll-proportion="0.9701023" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/slides_files/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="98" column="0" selection-start="1943" selection-end="2122" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/table.html">
+    <entry file="file://$PROJECT_DIR$/examples/gears.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="11" selection-start="0" selection-end="820" vertical-scroll-proportion="0.0">
+        <state line="5" column="6" selection-start="111" selection-end="161" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -289,16 +335,30 @@
         <state line="9381" column="5" selection-start="254423" selection-end="254423" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/examples/bars.html">
+    <entry file="file://$PROJECT_DIR$/examples/usa.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="0" selection-start="1976" selection-end="2289" vertical-scroll-proportion="-7.071429">
+        <state line="7" column="4" selection-start="230" selection-end="280" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/table.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="9" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/slides.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="233" column="6" selection-start="6660" selection-end="6660" vertical-scroll-proportion="0.4864865">
+        <state line="994" column="31" selection-start="27181" selection-end="27181" vertical-scroll-proportion="-2.7142856">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/examples/bars.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="25" selection-start="3829" selection-end="3829" vertical-scroll-proportion="0.4054054">
           <folding />
         </state>
       </provider>

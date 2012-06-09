@@ -47,6 +47,7 @@
             fill: #fff;
             font-size: 14px;
         }
+
         .stat-label {
             fill: #fff;
             font-size: 14px;
@@ -62,26 +63,6 @@
                 { stat:"vitality", value:600 }
             ];
 
-            d3.select("#make-table")
-                    .append("tr")
-                    .selectAll("th")
-                    .data(data)
-                    .enter()
-                    .append("th")
-                    .text(function(d) {
-                        return d.stat;
-                    });
-
-            d3.select("#make-table")
-                    .append("tr")
-                    .selectAll("td")
-                    .data(data)
-                    .enter()
-                    .append("td")
-                    .text(function(d) {
-                        return d.value;
-                    });
-
             var width = 500;
             var height = 200;
             var margin = 50;
@@ -94,7 +75,7 @@
             var max = 1000;
             var barMargin = 10;
             var barHeight = (height / 4) - barMargin;
-            var x = d3.scale.linear().domain([0, max]).range([leftMargin, width]);
+            var x = d3.scale.linear().domain([0, max]).range([margin, width]);
             var y = d3.scale.linear().domain([0, 3]).range([0, height - barHeight - barMargin]);
 
             g.selectAll(".bars")
@@ -106,7 +87,7 @@
                         return y(i);
                     })
                     .attr("width", function(d) {
-                        return x(d.value) - leftMargin;
+                        return x(d.value) - margin;
                     })
                     .attr("height", barHeight)
                     .attr("class", function(d) {
@@ -121,6 +102,7 @@
                     .attr("y2", height + 5)
                     .attr("class", "x-axis");
 
+            // x-ticks
             g.selectAll("x-tick")
                     .data(x.ticks(5))
                     .enter()
@@ -159,7 +141,7 @@
                     })
                     .attr("class", "bar-label")
                     .attr("x", function(d) {
-                        return 35;
+                        return x(35);
                     })
                     .attr("y", function(d, i) {
                         return y(i) + (barHeight / 2) + 5;
@@ -174,11 +156,12 @@
                     })
                     .attr("class", "stat-label")
                     .attr("x", function(d) {
-                        return x(d.value) - 35;
+                        return x(d.value) - 5;
                     })
                     .attr("y", function(d, i) {
                         return y(i) + (barHeight / 2) + 5;
-                    });
+                    })
+                    .attr("text-anchor", "end");
 
             $("#change-chart").click(function() {
                 console.log("change");
@@ -194,23 +177,22 @@
                         .transition()
                         .duration(duration)
                         .attr("width", function(d) {
-                            return x(d.value) - leftMargin;
+                            return x(d.value) - margin;
                         });
                 g.selectAll(".stat-label")
-                .data(data)
-                .transition()
-                .duration(duration)
-
-                                    .attr("x", function(d) {
-                        return x(d.value) - 35;
-                    });
+                        .data(data)
+                        .transition()
+                        .duration(duration)
+                        .attr("x", function(d) {
+                            return x(d.value) - 35;
+                        });
 
                 g.selectAll(".stat-label")
-                .data(data)
-                .transition().delay(duration)
-                .text(function(d) {
-                        return d.value;
-                    });
+                        .data(data)
+                        .transition().delay(duration)
+                        .text(function(d) {
+                            return d.value;
+                        });
 
             });
         });
@@ -218,8 +200,6 @@
     </script>
 
 <body>
-<table id="make-table"></table>
-<button id="change-chart">Change</button>
 <div id="bar-chart"></div>
 </body>
 </html>
