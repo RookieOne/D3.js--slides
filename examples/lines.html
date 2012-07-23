@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>D3 - Line Charts</title>
+    <script src=".././slides_files/jquery-1.7.2.min.js"></script>
+    <script src=".././slides_files/d3.v2.js"></script>
+    <script src="line_chart.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            lineChart.createSvgGraph("#lines-chart")
+            lineChart.createScales();
+            lineChart.createLine();
+            lineChart.createXaxis();
+            lineChart.createYaxis();
+            lineChart.createPoints();
+        });
+
+    </script>
+    <style>
+
+
+    </style>
+</head>
+<body>
+<div id="tool-tip"></div>
+<div id="lines-chart"></div>
+
+</body>
+</html>

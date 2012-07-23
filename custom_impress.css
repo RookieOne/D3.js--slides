@@ -1,0 +1,39 @@
+.mySlide {
+  background: #fff;
+}
+h2 {
+  font-size: 76px;
+  margin-bottom: 36px;
+  color:#333;
+}
+
+.footnote {
+  font-size: 15px;
+}
+
+.bar-chart {
+  border: 1px solid #333;
+}
+
+.strength {
+    fill: #9d261d;
+}
+
+.dexterity {
+    fill: #ffc40d;
+}
+
+.intelligence {
+    fill: #46a546;
+}
+
+.vitality {
+    fill: #049cbd;
+}
+
+.x-axis {
+  stroke: #333;
+}
+.tick {
+  stroke: #333;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Tree</title>
+    <script src=".././slides_files/jquery-1.7.2.min.js"></script>
+    <script src=".././slides_files/d3.v2.js"></script>
+    <script src=".././slides_files/moment.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var data = {
+                name: "Foobar, Inc.",
+                children: [
+                    {
+                        name:"Accounting",
+                        children: [
+                            { name: "Bob", salary: 50000 },
+                            { name: "Sue", salary: 50000 }
+                        ]
+                    },
+                    {
+                        name:"Computer Science",
+                        children: [
+                            { name: "Joe", salary: 150000 },
+                            { name: "Bubba", salary: 30000 }
+                        ]
+                    }
+                ]
+            };
+
+            var width = 400;
+            var height = 200;
+            var margin = 30;
+
+            var tree = d3.layout.tree().size([width - margin, height - margin]);
+            var nodes = tree.nodes(data);
+            var links = tree.links(nodes);
+
+            var g = d3.select("#tree-chart")
+                    .append("svg:svg")
+                    .attr("width", width + margin)
+                    .attr("height", height + margin)
+                    .append("svg:g")
+                    .attr("transform", "translate(0, 20)");
+
+            var diagonal = d3.svg.diagonal()
+                    .projection(function(d) {
+                        return [d.x, d.y];
+                    });
+
+            var link = g.selectAll("pathlink")
+                    .data(links)
+                    .enter().append("svg:path")
+                    .attr("class", "link")
+                    .attr("d", diagonal);
+
+            var node = g.selectAll("g.node")
+                    .data(nodes)
+                    .enter().append("svg:g")
+                    .attr("transform", function(d) {
+                        return "translate(" + d.x + "," + d.y + ")";
+                    });
+
+            node.append("svg:circle")
+                    .attr("r", 3.5);
+
+
+            node.append("svg:text")
+                  .attr("dx", function(d) { return d.children ? -8 : 8; })
+                  .attr("dy", 3)
+                  .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
+                  .text(function(d) { return d.name; })
+
+        });
+    </script>
+    <style>
+        .link {
+            stroke: #CCC;
+            fill: none;
+            stroke-width: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+<div id="tree-chart"></div>
+</body>
+</html>

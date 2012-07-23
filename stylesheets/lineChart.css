@@ -1,0 +1,15 @@
+.trade-point {
+    fill: green;
+}
+.line {
+    fill: none;
+    stroke-width: 1px;
+    stroke: green;
+}
+.tick {
+    stroke: black;
+}
+
+.lineChart {
+  background: #fff;
+}

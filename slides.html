@@ -498,15 +498,15 @@ slides below. -->
         });
     </div>
     <pre class="prettyprint" id="make-table-pretty">
-        d3.select("#make-table")
-        .append("tr")
-        .selectAll("td")
-        .data(data)
-        .enter()
-        .append("td")
-        .text(function(d) {
-            return d.value;
-        });
+d3.select("#make-table")
+    .append("tr")
+    .selectAll("td")
+    .data(data)
+    .enter()
+    .append("td")
+    .text(function(d) {
+        return d.value;
+    });
     </pre>
 </article>
 
@@ -990,6 +990,49 @@ slides below. -->
         .text(function(d) {
                 return d.value;
         });
+    </pre>
+</article>
+
+<article>
+    <h1>Line Chart & Axes*</h1>
+    <p>Chop, chop</p>
+    <div class="source">
+        * Did you know the plural of axis is axes?
+    </div>
+</article>
+
+<article>
+    <h3>Our Data</h3>
+    <pre class="prettyprint">
+    [
+        { date:"4/6/2012", hours:3 },
+        { date:"4/16/2012", hours:4 },
+        { date:"4/26/2012", hours:2 },
+        { date:"5/6/2012", hours:5 },
+        { date:"5/26/2012", hours:3 },
+        { date:"5/30/2012", hours:6 }
+    ]
+    </pre>
+</article>
+
+<article>
+    <h3>Set X Time Scale</h3>
+    <pre class="prettyprint">
+    var startDate = Date.parse("4/1/2012");
+    var endDate = Date.parse("5/30/2012");
+
+    lineChart.scaleX = d3.time.scale()
+            .domain([startDate, endDate])
+            .range([lineChart.margin, lineChart.width]);
+    </pre>
+</article>
+
+<article>
+    <h3>Set Y Scale</h3>
+    <pre class="prettyprint">
+    lineChart.scaleY = d3.scale.linear()
+        .domain([0, 6])
+        .range([lineChart.height, lineChart.margin]);
     </pre>
 </article>
 
