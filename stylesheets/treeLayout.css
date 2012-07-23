@@ -3,3 +3,7 @@
     fill: none;
     stroke-width: 5px;
 }
+
+.node-label {
+  font-size: 22px;
+}

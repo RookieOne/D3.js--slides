@@ -18,8 +18,8 @@ treeLayout = {
         }
     ]
   },
-  width: 400,
-  height: 200,
+  width: 700,
+  height: 400,
   margin: 30,
   createSvgGraph: function(divId) {
     treeLayout.svgChart = d3.select(divId)
@@ -33,7 +33,7 @@ treeLayout = {
     treeLayout.tree = d3.layout.tree().size([treeLayout.width - treeLayout.margin, treeLayout.height - treeLayout.margin]);
     treeLayout.nodes = treeLayout.tree.nodes(treeLayout.data);
     treeLayout.links = treeLayout.tree.links(treeLayout.nodes);
-    var diagonal = d3.svg.diagonal()
+    treeLayout.diagonal = d3.svg.diagonal()
             .projection(function(d) {
                 return [d.x, d.y];
             });
@@ -52,15 +52,17 @@ treeLayout = {
   },
   addNodeLabels: function() {
     treeLayout.node.append("svg:text")
-          .attr("dx", function(d) { return d.children ? -8 : 8; })
-          .attr("dy", 3)
-          .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
-          .text(function(d) { return d.name; });   
+      .attr("class", "node-label")
+      .attr("dx", function(d) { return d.children ? -8 : 8; })
+      .attr("dy", 3)
+      .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
+      .text(function(d) { return d.name; });   
   },
   addLinks: function() {
     treeLayout.svgChart.selectAll("pathlink")
           .data(treeLayout.links)
-          .enter().append("svg:path")
+          .enter()
+          .append("svg:path")
           .attr("class", "link")
           .attr("d", treeLayout.diagonal); 
   },
@@ -76,8 +78,9 @@ treeLayout = {
 
     treeLayout.createSvgGraph("#tree-addLinks");
     treeLayout.createLayout();
+    treeLayout.addLinks();
     treeLayout.addNodes();        
     treeLayout.addNodeLabels();  
-    treeLayout.addLinks();    
+        
   }
 }

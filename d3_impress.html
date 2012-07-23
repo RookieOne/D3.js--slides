@@ -12,13 +12,21 @@
     <script src="./libraries/prettify.js"></script>
     <script src="./libraries/jquery.svg.js"></script>
 
-    <link href="./stylesheets/impress.css" rel="stylesheet" />
+    <!-- <link href="./stylesheets/impress.css" rel="stylesheet" /> -->
+    <!-- <link href="./stylesheets/bootstrap.min.css" rel="stylesheet" /> -->
+    <link href="./stylesheets/reset.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
     <link href="./stylesheets/prettify.css" rel="stylesheet" />
-    <link href="custom_impress.css" rel="stylesheet" />    
+    <link href="./stylesheets/my_impress.css" rel="stylesheet" />
+
+    <!-- <link href="./stylesheets/bootstrap_impress.css" rel="stylesheet" />     -->
 
     <!-- Examples -->
     <script src="./examples/makeTable.js"></script>
+    
     <script src="./examples/barChart.js"></script>
+    <link href="./stylesheets/barChart.css" rel="stylesheet" />
+
     <script src="./examples/learnScales.js"></script>
 
     <script src="./examples/lineChart.js"></script>
@@ -36,16 +44,21 @@
         </div>
 
         <!-- What is D3 -->
-        <div class="step mySlide" data-x="500" data-y="0">
+        <div class="step" data-x="600" data-y="-200" data-scale="1">
             <h2>What is D3.js?</h2>
+        </div>
+        <div class="step" data-x="400" data-y="-40" data-scale="0.5">
             <p><strong>D3</strong> is a JavaScript library for manipulating documents based on data.</p>
         </div>
 
         <!-- So Charts -->
-        <div class="step mySlide" data-x="500" data-y="400">
-            <h2>So Charts?</h2>
+        <div class="step" data-x="600" data-y="100">
+            <h2>So Charts?</h2>            
+        </div>       
+        <div class="step" data-x="600" data-y="200" data-scale="0.5">
             <p>Yes... and no.</p>
         </div>       
+
 
         <!-- Pop Pyramid -->
         <div class="step" data-x="1500" data-y="0">
@@ -64,17 +77,17 @@
         <!-- or create -->
         <div class="step" data-x="3500" data-y="0" data-z="-2000">
             <p>Or create...</p>
-            <img src="images/flare_code_chart.png" height="650px" />
+            <img src="images/flare_code_chart.png" height="560px" />
             <p class="footnote">Source: D3.js Sample; Flare Code Size</p>
         </div>
 
         <!-- Data Drives Dom -->
-        <div class="step" data-x="1700" data-y="900" data-scale="4">
-            <p>Data Drives DOM</p>
+        <div class="step" data-x="-400" data-y="900" data-scale="2">
+            <h2>Data Drives DOM</h2>
         </div>
 
         <!-- Data Drives Dom Explanation -->
-        <div class="step" data-x="500" data-y="1200">
+        <div class="step" data-x="-590" data-y="1300" style="width:1300px">
             <p>
                 <strong>D3</strong> allows you to bind arbitrary data to a Document Object Model (DOM), and then apply data-driven transformations to the document.
             </p>
@@ -83,14 +96,18 @@
         </div>
 
         <!-- What does that mean? -->
-        <div class="step" data-x="930" data-y="2000"  data-rotate="90" data-scale="1.5">
-            <p>What does that mean?</p>
+        <div class="step" data-x="930" data-y="2000"  data-rotate="90" data-scale="1.5" style="width:1300px">
+            <h2>What does that mean?</h2>
         </div>     
 
         <!-- Unbound Creativity -->
-        <div class="step" data-x="930" data-y="2000"  data-rotate="90" data-scale="1.5">
+        <div class="step" data-x="0" data-y="3000"  data-rotate="180" data-scale="3" data-rotate-x="-40" data-rotate-y="10" style="font-size:130px; width:1300px">
             <p>Unbound Creativity</p>
         </div>     
+        <div class="step" data-x="-300" data-y="2100"  data-rotate="180" style="width:1300px">
+            <p><strong>D3</strong> is not a monolithic framework that seeks to provide every conceivable feature. Instead, D3
+        solves the crux of the problem: efficient manipulation of documents based on data.</p>
+        </div>            
 
 
         <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -98,12 +115,12 @@
         MAKE A TABLE
 
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-        <div class="step" data-x="930" data-y="2000"  data-rotate="90" data-scale="1.5">
-            <p>Making a Table</p>
+        <div class="step" data-x="2200" data-y="800" data-scale="1.5">
+            <h2>Making a Table</h2>
         </div>     
 
         <!-- Data -->
-        <div class="step" data-x="3200" data-y="-400"  data-rotate="-10" data-scale="1.5">
+        <div class="step" data-x="2000" data-y="1300" >
             <p>
                 Let's start with our data
             </p>
@@ -117,7 +134,7 @@
         </div>  
 
         <!-- Add Headers -->
-        <div class="step" data-x="3200" data-y="400">
+        <div class="step" data-x="2000" data-y="2400">
             <pre class="prettyprint">
     d3.select("#table-id")
         .append("tr")
@@ -126,14 +143,14 @@
         .enter()
         .append("th")
         .text(function(d) {
-        return d.stat;
+            return d.stat;
         });</pre>  
         </div>   
-        <div id="makeTable-addHeaders" class="step" data-x="4600" data-y="400"> 
+        <div id="makeTable-addHeaders" class="step" data-x="3000" data-y="2400"> 
         </div> 
 
         <!-- Add Rows -->
-        <div class="step" data-x="3200" data-y="1400">
+        <div class="step" data-x="2000" data-y="3400">
             <pre class="prettyprint">
     d3.select("#table-id")
         .append("tr")
@@ -145,7 +162,7 @@
             return d.value;
         });</pre>  
         </div>   
-        <div id="makeTable-addRow" class="step" data-x="4600" data-y="1400"> 
+        <div id="makeTable-addRow" class="step" data-x="3000" data-y="3400"> 
         </div>   
 
 
@@ -156,19 +173,21 @@
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->    
 
         <!-- More than a charting library -->
-        <div class="step" data-x="5000" data-y="2000" data-scale="2">
+        <div class="step" data-x="5000" data-y="500" data-scale="1.5" style="width:1300px">
             <p>D3 is more than a charting library</p>
         </div>  
-        <div class="step" data-x="5000" data-y="2050" data-scale="0.5">
+        <div class="step" data-x="5000" data-y="600" data-scale="0.5">
             <p>... now let's make a chart</p>
         </div>  
 
+        <div class="step" data-x="5000" data-y="800" data-scale="1.5">
+            <h2>Making a Bar Chart</h2>
+        </div>  
+
         <!-- Data -->
-        <div class="step" data-x="5000" data-y="2600" data-scale="1.5">
-            <p>
-                Let's use the same data
-            </p>
+        <div class="step" data-x="4750" data-y="1200">
             <pre class="prettyprint">
+    // let's use the same data
     var data = [
         { stat:"strength", value:400 },
         { stat:"dexterity", value:1000 },
@@ -178,7 +197,7 @@
         </div> 
 
         <!-- Add SVG -->
-        <div class="step" data-x="5000" data-y="3400">
+        <div class="step" data-x="4750" data-y="1800">
             <pre class="prettyprint">
     var g = d3.select("#div-id")
             .append("svg:svg")
@@ -186,33 +205,31 @@
             .attr("height", height + margin)
             .append("svg:g");</pre>  
         </div>   
-        <div id="barChart-addSvg" class="step" data-x="5900" data-y="3400"> 
+        <div id="barChart-addSvg" class="step" data-x="5850" data-y="1800"> 
         </div>  
 
         <!-- Talk about Scales -->
-        <div class="step" data-x="2000" data-y="3400">
+        <div class="step" data-x="4700" data-y="-1400">
             <p>Let's talk about scales</h3>
         </div>
 
         <!-- Linear Scale -->
-        <div class="step" data-x="2000" data-y="3600">
+        <div class="step" data-x="4630" data-y="-1000">
             <pre class="prettyprint">
     var scaleFx = d3.scale.linear()
         .domain([0, 100])
         .range([min, max]);
 
     var scaledvalue = scaleFx(domainValue);</pre>
-
-
         </div>
 
-        <div class="step" data-x="2000" data-y="3900">
-            <table id="linear-scale">
+        <div class="step" data-x="4700" data-y="-350">
+            <table id="linear-scale" style="font-size:36px">
             </table>
         </div>
 
         <!-- Ordinal Scale -->
-        <div class="step" data-x="3000" data-y="3600">
+        <div class="step" data-x="5750" data-y="-1400">
             <pre class="prettyprint">
     var scaleFx = d3.scale.ordinal()
         .domain([categories])
@@ -221,49 +238,56 @@
     var rangeValue = scaleFx(category);</pre>
         </div>
 
-        <div class="step" data-x="3000" data-y="3900">
-            <table id="ordinal-scale">
+        <div class="step" data-x="5820" data-y="-750">
+            <table id="ordinal-scale" style="font-size:36px">
             </table>
         </div>
 
+        <div class="step" data-x="5820" data-y="-300">
+            <p>Now back to our bar chart</p>
+        </div>
 
         <!-- Set Scale Fxs -->
-        <div class="step" data-x="5000" data-y="4000">
+        <div class="step barChartStep" data-x="4700" data-y="2200">
             <pre class="prettyprint">
+        // create X Scale function
         var x = d3.scale.linear()
             .domain([0, max])
             .range([margin, width]);</pre>
         </div>
-        <div class="step" data-x="5000" data-y="4500">
+        <div class="step barChartStep" data-x="4700" data-y="2600">
             <pre class="prettyprint">
+        // create Y Scale function
         var y = d3.scale.linear()
             .domain([0, 3])
             .range([0, height - barHeight - barMargin]);</pre>
         </div>
             
         <!-- Add Basic Bars -->
-        <div class="step" data-x="5000" data-y="5000">
+        <div id="add-basic-bars" class="step barChartStep" data-x="4700" data-y="3400">
             <pre class="prettyprint">
+        // create bars
         g.selectAll(".bars")
             .data(data)
             .enter()
             .append("svg:rect")
             .attr("x", x(0))
-            .attr("y", function(d, i) {
-                return y(i);
+            .attr("y", function(d, i) { 
+                return y(i); 
             })
             .attr("width", function(d) {
                 return x(d.value) - margin;
             })
             .attr("height", barHeight);</pre>
         </div>
-        <div id="barChart-addBasicBars" class="step" data-x="5500" data-y="5000">            
+        <div id="barChart-addBasicBars" class="step" data-x="5250" data-y="3400">            
         </div>
 
 
         <!-- Add Bars -->
-        <div class="step" data-x="5000" data-y="6000">
+        <div class="step barChartStep" data-x="4700" data-y="4100">
             <pre class="prettyprint">
+        // add class to bars
         g.selectAll(".bars")
             .data(data)
             .enter()
@@ -280,11 +304,11 @@
             })
             .attr("height", barHeight);</pre>
         </div>
-        <div id="barChart-addBars" class="step" data-x="5500" data-y="6000">            
+        <div id="barChart-addBars" class="step" data-x="5250" data-y="4100">            
         </div>
 
         <!-- X Axis -->
-        <div class="step" data-x="5000" data-y="6500">
+        <div class="step barChartStep" data-x="4700" data-y="4750">
             <pre class="prettyprint">
     // x-axis
     g.append("svg:line")
@@ -294,11 +318,11 @@
         .attr("y2", height + 5)
         .attr("class", "x-axis");</pre>
         </div>
-        <div id="barChart-xAxis" class="step" data-x="5500" data-y="6500">            
+        <div id="barChart-xAxis" class="step" data-x="5250" data-y="4750">            
         </div>        
 
         <!-- X Ticks -->
-        <div class="step" data-x="6000" data-y="6500">
+        <div class="step barChartStep" data-x="4700" data-y="5400">
             <pre class="prettyprint">
     // x-ticks
     g.selectAll("x-tick")
@@ -315,11 +339,11 @@
         .attr("y1", height + 5)
         .attr("y2", height);</pre>
         </div>
-        <div id="barChart-xTicks" class="step" data-x="6500" data-y="6500">            
+        <div id="barChart-xTicks" class="step" data-x="5250" data-y="5400">            
         </div>  
 
         <!-- X Labels -->
-        <div class="step" data-x="7000" data-y="6500">
+        <div class="step barChartStep" data-x="4700" data-y="6100">
             <pre class="prettyprint">
     // x-labels
     g.selectAll("x-label")
@@ -336,11 +360,11 @@
         .attr("y", height + 25)
         .attr("text-anchor", "middle");</pre>
         </div>
-        <div id="barChart-xLabels" class="step" data-x="7500" data-y="6500">            
+        <div id="barChart-xLabels" class="step" data-x="5250" data-y="6100">            
         </div>         
 
         <!-- Bar Labels -->
-        <div class="step" data-x="8000" data-y="6500">
+        <div class="step barChartStep" data-x="4700" data-y="6800">
             <pre class="prettyprint">
     // bar labels
     g.selectAll("bar-label")
@@ -358,11 +382,11 @@
             return y(i) + (barHeight / 2) + 5;
         });</pre>
         </div>
-        <div id="barChart-barLabels" class="step" data-x="8500" data-y="6500">            
+        <div id="barChart-barLabels" class="step" data-x="5250" data-y="6800">            
         </div> 
 
         <!-- Stat Labels -->
-        <div class="step" data-x="9000" data-y="6500">
+        <div class="step barChartStep" data-x="4700" data-y="7600">
             <pre class="prettyprint">
     // stat labels
     g.selectAll(".stat-label")
@@ -381,11 +405,37 @@
         })
         .attr("text-anchor", "end");</pre>
         </div>
-        <div id="barChart-statLabels" class="step" data-x="9500" data-y="6500">            
+        <div id="barChart-statLabels" class="step" data-x="5250" data-y="7600">            
         </div> 
 
         <!-- Transitions -->
-        <div class="step" data-x="10000" data-y="6500">
+        <div class="step" data-x="7000" data-y="0">
+            <h2>Time for magic</h2>
+        </div>
+
+        <div class="step barChartStep" data-x="7000" data-y="600">
+            <pre class="prettyprint">
+      var data = {
+        "barb": [{ stat:"strength", value:900 },
+                 { stat:"dexterity", value:400 },
+                 { stat:"intelligence", value: 250 },
+                 { stat:"vitality", value:800 }],
+        "monk": [{ stat:"strength", value:200 },
+                 { stat:"dexterity", value:850 },
+                 { stat:"intelligence", value:250 },
+                 { stat:"vitality", value:600 }],
+        "wiz": [{ stat:"strength", value:330 },
+                 { stat:"dexterity", value:230 },
+                 { stat:"intelligence", value:990 },
+                 { stat:"vitality", value:300 }],
+        "witch": [{ stat:"strength", value:200 },
+                 { stat:"dexterity", value:470 },
+                 { stat:"intelligence", value:880 },
+                 { stat:"vitality", value:650 }]
+    }</pre>
+        </div>
+
+        <div class="step barChartStep" data-x="7000" data-y="1250">
             <pre class="prettyprint">
     // transition bars
     var duration = 2000;
@@ -397,7 +447,7 @@
             return x(d.value) - margin;
         });</pre>
         </div>
-        <div class="step" data-x="10500" data-y="6500">            
+        <div class="step" data-x="7550" data-y="1250">            
             <button data-set="barb" onclick="barChart.transitionBars('#barChart-transitions', 'barb')">Barbarian</button>
             <button data-set="monk" onclick="barChart.transitionBars('#barChart-transitions', 'monk')">Monk</button>
             <button data-set="wiz" onclick="barChart.transitionBars('#barChart-transitions', 'wiz')">Wizard</button>
@@ -407,7 +457,7 @@
         </div> 
 
         <!-- Transition Labels-->
-        <div class="step" data-x="11000" data-y="6500">
+        <div class="step barChartStep" data-x="7000" data-y="1800">
             <pre class="prettyprint">
     // transition stat labels
     var duration = 2000;
@@ -422,7 +472,7 @@
                 return d.value;
         });</pre>
         </div>
-        <div class="step" data-x="11500" data-y="6500">            
+        <div class="step" data-x="7550" data-y="1800">            
             <button data-set="barb" onclick="barChart.transition('#barChart-label-transitions', 'barb')">Barbarian</button>
             <button data-set="monk" onclick="barChart.transition('#barChart-label-transitions', 'monk')">Monk</button>
             <button data-set="wiz" onclick="barChart.transition('#barChart-label-transitions', 'wiz')">Wizard</button>
@@ -438,19 +488,20 @@
 
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
 
-        <div class="step" data-x="5000" data-y="8500">            
-            <p>Line Chart & Axes</p>
+        <div class="step" data-x="10000" data-y="0">            
+            <h2>Line Chart & Axes</h2>
         </div> 
-        <div class="step" data-x="5000" data-y="9000" data-scale=".5">            
+        <div class="step" data-x="9900" data-y="100" data-scale=".5" style="width:1300px">            
             <p>Did you know the plural of axis is axes?</p>
         </div>
-        <div class="step" data-x="5000" data-y="9000" data-scale=".5">            
+        <div class="step" data-x="9800" data-y="200" data-scale=".5">            
             <p>Chop Chop</p>
         </div>
 
-        <div class="step" data-x="6000" data-y="8500">
+        <div class="step lineChartStep" data-x="10000" data-y="550">
             <pre class="prettyprint">
-    [
+    // setting up our data
+    var data = [
         { date:Date.parse("4/6/2012"), hours:3 },
         { date:Date.parse("4/16/2012"), hours:4 },
         { date:Date.parse("4/26/2012"), hours:2 },
@@ -461,8 +512,9 @@
         </div>
 
         <!-- Set X Scale -->
-        <div class="step" data-x="7000" data-y="8500">
+        <div class="step lineChartStep" data-x="10000" data-y="1000">
             <pre class="prettyprint">
+    // setup X Scale
     var startDate = Date.parse("4/1/2012");
     var endDate = Date.parse("5/30/2012");
 
@@ -472,89 +524,88 @@
         </div>        
 
         <!-- Set Y Scale -->
-        <div class="step" data-x="8000" data-y="8500">
+        <div class="step lineChartStep" data-x="10000" data-y="1350">
             <pre class="prettyprint">
+    // setup Y Scale
     var y = d3.scale.linear()
         .domain([0, 6])
         .range([height, margin]);</pre>
         </div>   
 
         <!-- Line -->
-        <div class="step" data-x="9000" data-y="8500">
+        <div class="step lineChartStep" data-x="10000" data-y="1800">
             <pre class="prettyprint">
-        var line = d3.svg.line()
-                    .x(function(d) {
-                        return x(d.date);
-                    })
-                    .y(function(d) {
-                        return y(d.hours);
-                    });
-        g.append("svg:path")
-            .attr("class", "line")
-            .attr("d", line(data));</pre>
+    // create line
+    var line = d3.svg.line()
+                .x(function(d) {
+                    return x(d.date);
+                })
+                .y(function(d) {
+                    return y(d.hours);
+                });
+    g.append("svg:path")
+        .attr("class", "line")
+        .attr("d", line(data));</pre>
         </div>           
-        <div id="lineChart-addLine" class="step" data-x="10000" data-y="8500">
+        <div id="lineChart-addLine" class="step" data-x="10700" data-y="1800">
             
         </div> 
 
         <!-- X Axis -->
-        <div class="step" data-x="12000" data-y="8500">
+        <div class="step lineChartStep" data-x="10000" data-y="2500">
             <pre class="prettyprint">
-        var xAxis = d3.svg.axis()
-            .orient("bottom")
-            .scale(x)
-            .tickSubdivide(0)
-            .tickSize(6, 3, 1)
-            .ticks(d3.time.weeks, 1)
-            .tickFormat(d3.time.format("%m/%d"));
+    // add X Axis
+    var xAxis = d3.svg.axis()
+        .orient("bottom")
+        .scale(x)
+        .tickSubdivide(0)
+        .tickSize(6, 3, 1)
+        .ticks(d3.time.weeks, 1)
+        .tickFormat(d3.time.format("%m/%d"));
 
-        g.append("svg:g")
-                .attr("class", "x-axis")
-                .attr("width", width)
-                .attr("transform", "translate(0," + height + ")")
-                .call(xAxis);</pre>
+    g.append("svg:g")
+            .attr("class", "x-axis")
+            .attr("width", width)
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);</pre>
         </div>           
-        <div id="lineChart-xAxis" class="step" data-x="13000" data-y="8500">
+        <div id="lineChart-xAxis" class="step" data-x="10700" data-y="2500">
             
         </div>         
 
         <!-- Y Axis -->
-        <div class="step" data-x="14000" data-y="8500">
+        <div class="step lineChartStep" data-x="10000" data-y="3200">
             <pre class="prettyprint">
-        var yAxis = d3.svg.axis()
-                .orient("left")
-                .ticks(3)
-                .tickSize(6,1)
-                .scale(y);
+    // add Y Axis
+    var yAxis = d3.svg.axis()
+            .orient("left")
+            .ticks(3)
+            .tickSize(6,1)
+            .scale(y);
 
-        g.append("svg:g")
-                .attr("class", "y-axis")
-                .attr("transform", "translate(" + margin + ",0)")
-                .call(yAxis);</pre>
+    g.append("svg:g")
+            .attr("class", "y-axis")
+            .attr("transform", "translate(" + margin + ",0)")
+            .call(yAxis);</pre>
         </div>           
-        <div id="lineChart-yAxis" class="step" data-x="15000" data-y="8500">
+        <div id="lineChart-yAxis" class="step" data-x="10700" data-y="3200">
             
         </div>    
 
         <!-- Add Points -->
-        <div class="step" data-x="16000" data-y="8500">
-            <pre class="prettyprint">
-        g.selectAll(".trade-point")
-                .data(data)
-                .enter()
-                .append("svg:circle")
-                .attr("class", "trade-point")
-                .attr("cy", function(d) { return y(d.hours); })
-                .attr("cx", function(d) { return x(d.date); })
-                .attr("r", 4)
-                .on("mouseover", function(d) {
-                    $("#tool-tip").html("DPS is : " + d.hours);
-                })
-                .on("mouseout", function(d) {
-                    $("#tool-tip").html();
-                });</pre>
+        <div class="step lineChartStep" data-x="10000" data-y="3750">
+        <pre class="prettyprint">
+    // add points
+    g.selectAll(".trade-point")
+            .data(data)
+            .enter()
+            .append("svg:circle")
+            .attr("class", "trade-point")
+            .attr("cy", function(d) { return y(d.hours); })
+            .attr("cx", function(d) { return x(d.date); })
+            .attr("r", 4);</pre>
         </div>           
-        <div id="lineChart-addPoints" class="step" data-x="17000" data-y="8500">
+        <div id="lineChart-addPoints" class="step" data-x="10750" data-y="3750">
             
         </div> 
 
@@ -564,33 +615,30 @@
 
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
 
-        <div class="step" data-x="20000" data-y="0">
-            <p>Our data</p>           
+        <div class="step" data-x="12000" data-y="0">            
+            <h2>Using Layouts</h2>
         </div> 
-        <div class="step" data-x="20000" data-y="100">
+        <div class="step treeChartStep" data-x="12000" data-y="400" style="font-size:26px;width:1000px">
             <pre class="prettyprint">
-{
+    // our data
+    var data = {
       name: "Foobar, Inc.",
-      children: [
-          {
-              name:"Accounting",
-              children: [
-                  { name: "Bob", salary: 50000 },
-                  { name: "Sue", salary: 50000 }
-              ]
-          },
-          {
-              name:"Computer Science",
-              children: [
-                  { name: "Joe", salary: 150000 },
-                  { name: "Bubba", salary: 30000 }
-              ]
-          }
-      ]
-  }</pre>
+      children: [ {
+          name:"Accounting",
+          children: [
+              { name: "Bob", salary: 50000 },
+              { name: "Sue", salary: 50000 }
+          ]
+      }, {
+          name:"Computer Science",
+          children: [
+              { name: "Joe", salary: 150000 },
+              { name: "Bubba", salary: 30000 }
+          ]
+      }]};</pre>
         </div>     
 
-        <div class="step" data-x="20000" data-y="1000">
+        <div class="step treeChartStep" data-x="12000" data-y="920">
             <pre class="prettyprint">
     // create svg
     var g = d3.select("#tree-chart")
@@ -601,7 +649,7 @@
                 .attr("transform", "translate(0, 20)");</pre>
         </div>      
 
-        <div class="step" data-x="20000" data-y="2000">
+        <div class="step treeChartStep" data-x="12000" data-y="1320">
             <pre class="prettyprint">
     // setup layout
     var tree = d3.layout.tree().size([width - margin, height - margin]);
@@ -613,7 +661,7 @@
             });
         </div>
 
-        <div class="step" data-x="20000" data-y="3000">
+        <div class="step treeChartStep" data-x="12000" data-y="1800">
             <pre class="prettyprint"> 
     // add nodes       
     var node = g.selectAll("g.node")
@@ -627,33 +675,39 @@
     node.append("svg:circle")
             .attr("r", 3.5);</pre>
         </div>     
-       <div id="tree-addNodes" class="step" data-x="21000" data-y="3000">
+       <div id="tree-addNodes" class="step" data-x="12750" data-y="1850">
             
     </div> 
 
-        <div class="step" data-x="20000" data-y="4000">
+        <div class="step treeChartStep" data-x="12000" data-y="2400">
             <pre class="prettyprint"> 
     // add node labels       
     node.append("svg:text")
-          .attr("dx", function(d) { return d.children ? -8 : 8; })
-          .attr("dy", 3)
-          .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
-          .text(function(d) { return d.name; });</pre>
+      .attr("class", "node-label")
+      .attr("dx", function(d) { 
+          return d.children ? -8 : 8; 
+      })
+      .attr("dy", 3)
+      .attr("text-anchor", function(d) { 
+        return d.children ? "end" : "start"; 
+      })
+      .text(function(d) { return d.name; });</pre>
         </div>     
-       <div id="tree-addNodeLabels" class="step" data-x="21000" data-y="4000">
+       <div id="tree-addNodeLabels" class="step" data-x="12600" data-y="2450">
             
     </div> 
 
-        <div class="step" data-x="20000" data-y="5000">
+        <div class="step treeChartStep" data-x="12000" data-y="2950">
             <pre class="prettyprint"> 
     // add links
     g.selectAll("pathlink")
           .data(links)
-          .enter().append("svg:path")
+          .enter()
+          .append("svg:path")
           .attr("class", "link")
           .attr("d", diagonal);</pre>
         </div>     
-       <div id="tree-addLinks" class="step" data-x="21000" data-y="5000">
+       <div id="tree-addLinks" class="step" data-x="12600" data-y="3000">
             
     </div>     
 
@@ -664,8 +718,8 @@
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
 
 
-        <div class="step" data-x="500" data-y="500">
-            <h1>Examples</h1>
+        <div class="step" data-x="14000" data-y="-1500">
+            <h2>Examples</h2>
             <ul>
                 <li><a href="http://mbostock.github.com/d3/ex/bullet.html" target="_blank">Bullet Charts</a></li>
                 <li><a href="http://bl.ocks.org/1256572" target="_blank">Show Reel</a></li>
@@ -674,38 +728,40 @@
             </ul>            
         </div> 
 
-        <div class="step" data-x="30000" data-y="500">
+        <div class="step" data-x="14000" data-y="0">
+            <h2>Using SVG Maps</h2>
+        </div>
+
+        <div class="step" data-x="14000" data-y="300">
             <p>United States in SVG</p>
         </div>
 
-        <div class="step" data-x="30000" data-y="700">
-            <iframe src="examples/usa.html"></iframe>
+        <div class="step" data-x="14000" data-y="650">
+            <iframe src="examples/usa.html" class="usa"></iframe>
             <p class="footnote">
                 http://en.wikipedia.org/wiki/File:Blank_US_Map.svg
             </p>
         </div>
 
-        <div class="step" data-x="30000" data-y="1000">
+        <div class="step usaStep" data-x="14000" data-y="1350">
             <pre class="prettyprint"> 
     // our data
-    var data = [
-        { state:"TX", value:65 },
-        { state:"WA", value:54 },
-        { state:"CA", value:25 },
-        { state:"CO", value:35 },
-        { state:"AL", value:72 },
-        { state:"FL", value:13 },
-        { state:"OK", value:22 },
-        { state:"OH", value:69 },
-        { state:"MI", value:54 },
-        { state:"VA", value:38 },
-        { state:"MS", value:43 },
-        { state:"GA", value:49 },
-        { state:"NY", value:90 }
-    ];</pre>
+    var data = [{ state:"TX", value:65 },
+                { state:"WA", value:54 },
+                { state:"CA", value:25 },
+                { state:"CO", value:35 },
+                { state:"AL", value:72 },
+                { state:"FL", value:13 },
+                { state:"OK", value:22 },
+                { state:"OH", value:69 },
+                { state:"MI", value:54 },
+                { state:"VA", value:38 },
+                { state:"MS", value:43 },
+                { state:"GA", value:49 },
+                { state:"NY", value:90 }];</pre>
         </div>     
 
-    <div class="step" data-x="30000" data-y="2000">
+    <div class="step usaStep" data-x="14000" data-y="2000">
         <pre class="prettyprint">
         // set opacity in states
         var opacity = d3.scale.linear().domain([0,100]).range([.5, 1]);
@@ -718,11 +774,11 @@
                     .attr("fill", "#0000FF");
         }</pre>
     </div>
-    <div class="step" data-x="31000" data-y="2000">
-        <iframe src="examples/usa.html#opacity"></iframe>
+    <div class="step" data-x="15000" data-y="2000">
+        <iframe src="examples/usa.html#opacity" class="usa"></iframe>
     </div>
 
-    <div class="step" data-x="30000" data-y="3000">
+    <div class="step usaStep" data-x="14000" data-y="2650">
         <pre class="prettyprint">
     // set color to states
     var color = d3.scale.linear().domain([0,100]).range(["#000000", "#0000FF"]);
@@ -735,25 +791,25 @@
                 .attr("fill", color(d.value));
     }</pre>
     </div>
-    <div class="step" data-x="31000" data-y="3000">
-        <iframe src="examples/usa.html#color"></iframe>
+    <div class="step" data-x="15000" data-y="2650">
+        <iframe src="examples/usa.html#color" class="usa"></iframe>
     </div>
 
-    <div class="step" data-x="30000" data-y="4000">
+    <div class="step usaStep" data-x="14000" data-y="3200">
         <pre class="prettyprint">
     // using color brewer
-var color = d3.scale.ordinal().domain([0,100]).range(colorbrewer.Blues[9]);
-for(var i in data) {
-    var d = data[i];
-    d3.selectAll("#" + d.state)
-            .attr("style", "")
-            .attr("class", "default-style")
-            .attr("opacity", 1)
-            .attr("fill", color(d.value));
-}</pre>
+    var color = d3.scale.ordinal().domain([0,100]).range(colorbrewer.Blues[9]);
+    for(var i in data) {
+        var d = data[i];
+        d3.selectAll("#" + d.state)
+                .attr("style", "")
+                .attr("class", "default-style")
+                .attr("opacity", 1)
+                .attr("fill", color(d.value));
+    }</pre>
     </div>
-    <div class="step" data-x="31000" data-y="4000">
-        <iframe src="examples/usa.html#brewer"></iframe>
+    <div class="step" data-x="15000" data-y="3200">
+        <iframe src="examples/usa.html#brewer" class="usa"></iframe>
     </div>
 
 
@@ -763,21 +819,18 @@ for(var i in data) {
 
     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ --> 
 
-    <div class="step" data-x="40000" data-y="0">
-        <p>Final Comments</p>
+    <div class="step" data-x="16000" data-y="0">
+        <h2>Final Comments</h2>
     </div>
-    <div class="step" data-x="40000" data-y="300">
-        <p>80/20</p>
-    </div>    
-    <div class="step" data-x="40000" data-y="1300">
+
+    <div class="step finalStep" data-x="15880" data-y="150" data-scale="0.4">
+        <h2>80/20</h2>
         <p>80% of the chart will be done in 20% of the time.</p>
         <p>The last 20% of work getting the chart awesome will take 80% of your time.</p>
     </div>    
 
-    <div class="step" data-x="40000" data-y="2300">
-        <p>Good Workflow</p>
-    </div>    
-    <div class="step" data-x="40000" data-y="2700">
+    <div class="step finalStep" data-x="15880" data-y="370" data-scale="0.4">
+    <h2>Good Workflow</h2>
     <ol>
         <li>Create visual with mock data in separate html file</li>
         <li>Finalize data format</li>
@@ -786,47 +839,53 @@ for(var i in data) {
     </ol>
     </div>  
 
-    <div class="step" data-x="40000" data-y="3300">
-        <p>Lines of Code</p>
-    </div>    
-    <div class="step" data-x="40000" data-y="3700">
+    <div class="step finalStep" data-x="15880" data-y="620" data-scale="0.4">
+      <h2>Lines of Code</h2>
     <ul>
         <li>D3 can result in a large number of lines of code</li>
         <li>But the code is simple once you understand the pattern.</li>
        </ul>
     </div>     
 
-<div class="step" data-x="40000" data-y="4300">
-    <p>Yes I can do that</p>
+<div class="step finalStep" data-x="15880" data-y="800" data-scale="0.4">
+    <h2>Working with D3</h2>
+    <p>It is awesome telling clients and designers:</p>
+    <strong>Yes I can do that.</strong>
+    <p>Other charting libraries might get a chart out faster but few can compete with D3's flexibility.</p>      
 </div>
 
-<div class="step" data-x="40000" data-y="4600">
-    <p>Isn't it nice telling clients and designers yes?</p>
-    <p>Other charting libraries might get a chart out faster but few can compete with d3's flexibility.</p>
-</div>
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-<div class="step" data-x="40000" data-y="5600">
-    <p>D3.js</p>
+    Wrap up
+
+    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ --> 
+
+    <div class="step" data-x="17000" data-y="0">
+        <h2>Continue your learning...</h2>
+    </div>
+
+<div class="step" data-x="17000" data-y="400">
+    <h2>D3.js</h2>
     <p><a href="http://d3js.org/">http://d3js.org/</a></p>
     <p><a href="https://github.com/mbostock/d3">https://github.com/mbostock/d3</a></p>
 </div>
 
-<div class="step" data-x="40000" data-y="6600">
-    <p>Slides</p>
+<div class="step" data-x="17000" data-y="800">
+    <h2>My Slides</h2>
     <p><a href="https://github.com/RookieOne/D3.js--slides">https://github.com/RookieOne/D3.js--slides</a></p>
 </div>
 
-<div class="step" data-x="40000" data-y="6600">
-    <p>Impress.js</p>
+<div class="step" data-x="17000" data-y="1100">
+    <h2>Impress.js</h2>
     <p><a href="http://bartaz.github.com/impress.js">http://bartaz.github.com/impress.js</a></p>
 </div>
 
-<div class="step" data-x="40000" data-y="7600">
-    <p>Questions?</p>
+<div class="step" data-x="17000" data-y="1800">
+    <h2>Any Questions?</h2>
 </div>
 
         <!-- Overview -->
-        <div class="step" data-x="0" data-y="0" data-scale="10">
+        <div class="step" data-x="6000" data-y="3000" data-scale="10">
             
         </div>        
     </div>

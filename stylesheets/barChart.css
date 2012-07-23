@@ -1,0 +1,35 @@
+.strength {
+    fill: #9d261d;
+}
+
+.dexterity {
+    fill: #ffc40d;
+}
+
+.intelligence {
+    fill: #46a546;
+}
+
+.vitality {
+    fill: #049cbd;
+}
+
+.x-axis {
+  stroke: #333;
+}
+.tick {
+  stroke: #333;
+}
+
+.x-label {
+  font-size: 16px;
+}
+
+.bar-label {
+  font-size: 18px;
+  stroke: #fff;
+}
+.stat-label {
+  font-size: 18px;
+  stroke: #fff;
+}
