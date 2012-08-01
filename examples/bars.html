@@ -2,204 +2,34 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>D3.js - Make Table</title>
+    <title>Bar Chart</title>
     <meta charset="utf-8">
-    <script src=".././slides_files/jquery-1.7.2.min.js"></script>
-    <script src=".././slides_files/d3.v2.js"></script>
-    <style>
-        #make-table {
-            border: 1px solid #ddd;
-        }
+    <script src=".././libraries/jquery-1.7.2.min.js"></script>
+    <script src=".././libraries/d3.v2.js"></script>
+    <script src=".././examples/barChart.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+    <link href=".././stylesheets/barChart.css" rel="stylesheet" />
+    <link href=".././stylesheets/reset.css" rel="stylesheet" />
+    <link href=".././stylesheets/my_impress.css" rel="stylesheet" />
 
-        #make-table tr td {
-            border: 1px solid #ddd;
-        }
-
-        #bar-chart {
-            margin-top: 30px;
-        }
-
-        .strength {
-            fill: #9d261d;
-        }
-
-        .dexterity {
-            fill: #ffc40d;
-        }
-
-        .intelligence {
-            fill: #46a546;
-        }
-
-        .vitality {
-            fill: #049cbd;
-        }
-
-        .x-axis {
-            stroke: #000;
-        }
-
-        .tick {
-            stroke: #000;
-        }
-
-        .bar-label {
-            fill: #fff;
-            font-size: 14px;
-        }
-
-        .stat-label {
-            fill: #fff;
-            font-size: 14px;
-            font-weight: bold;
-        }
-    </style>
     <script type="text/javascript">
-        $(function() {
-            var data = [
-                { stat:"strength", value:400 },
-                { stat:"dexterity", value:1000 },
-                { stat:"intelligence", value:450 },
-                { stat:"vitality", value:600 }
-            ];
-
-            var width = 500;
-            var height = 200;
-            var margin = 50;
-
-            var g = d3.select("#bar-chart")
-                    .append("svg:svg")
-                    .attr("width", width + margin)
-                    .attr("height", height + margin)
-                    .append("svg:g");
-            var max = 1000;
-            var barMargin = 10;
-            var barHeight = (height / 4) - barMargin;
-            var x = d3.scale.linear().domain([0, max]).range([margin, width]);
-            var y = d3.scale.linear().domain([0, 3]).range([0, height - barHeight - barMargin]);
-
-            g.selectAll(".bars")
-                    .data(data)
-                    .enter()
-                    .append("svg:rect")
-                    .attr("x", x(0))
-                    .attr("y", function(d, i) {
-                        return y(i);
-                    })
-                    .attr("width", function(d) {
-                        return x(d.value) - margin;
-                    })
-                    .attr("height", barHeight)
-                    .attr("class", function(d) {
-                        return "bars " + d.stat;
-                    });
-
-            // x-axis
-            g.append("svg:line")
-                    .attr("x1", x(0))
-                    .attr("x2", x(max))
-                    .attr("y1", height + 5)
-                    .attr("y2", height + 5)
-                    .attr("class", "x-axis");
-
-            // x-ticks
-            g.selectAll("x-tick")
-                    .data(x.ticks(5))
-                    .enter()
-                    .append("svg:line")
-                    .attr("class", "tick")
-                    .attr("x1", function(d) {
-                        return x(d)
-                    })
-                    .attr("x2", function(d) {
-                        return x(d)
-                    })
-                    .attr("y1", height + 5)
-                    .attr("y2", height);
-
-            g.selectAll("x-tick-label")
-                    .data(x.ticks(5))
-                    .enter()
-                    .append("svg:text")
-                    .attr("class", "x-label")
-                    .text(function(d) {
-                        return d;
-                    })
-                    .attr("x", function(d) {
-                        return x(d);
-                    })
-                    .attr("y", height + 25)
-                    .attr("text-anchor", "middle");
-
-
-            g.selectAll("bar-label")
-                    .data(data)
-                    .enter()
-                    .append("svg:text")
-                    .text(function(d) {
-                        return d.stat;
-                    })
-                    .attr("class", "bar-label")
-                    .attr("x", function(d) {
-                        return x(35);
-                    })
-                    .attr("y", function(d, i) {
-                        return y(i) + (barHeight / 2) + 5;
-                    });
-
-            g.selectAll(".stat-label")
-                    .data(data)
-                    .enter()
-                    .append("svg:text")
-                    .text(function(d) {
-                        return d.value;
-                    })
-                    .attr("class", "stat-label")
-                    .attr("x", function(d) {
-                        return x(d.value) - 5;
-                    })
-                    .attr("y", function(d, i) {
-                        return y(i) + (barHeight / 2) + 5;
-                    })
-                    .attr("text-anchor", "end");
-
-            $("#change-chart").click(function() {
-                console.log("change");
-                data = [
-                    { stat:"strength", value:800 },
-                    { stat:"dexterity", value:300 },
-                    { stat:"intelligence", value:650 },
-                    { stat:"vitality", value:200 }
-                ];
-                var duration = 2500;
-                g.selectAll(".bars")
-                        .data(data)
-                        .transition()
-                        .duration(duration)
-                        .attr("width", function(d) {
-                            return x(d.value) - margin;
-                        });
-                g.selectAll(".stat-label")
-                        .data(data)
-                        .transition()
-                        .duration(duration)
-                        .attr("x", function(d) {
-                            return x(d.value) - 35;
-                        });
-
-                g.selectAll(".stat-label")
-                        .data(data)
-                        .transition().delay(duration)
-                        .text(function(d) {
-                            return d.value;
-                        });
-
-            });
+        $(function() {            
+            barChart.createSvgChart("#bar-chart");
+            barChart.createScaleFxs();
+            barChart.addBars();   
+            barChart.addXAxis();
+            barChart.addXTicks();
+            barChart.addXLabels();
+            barChart.addBarLabels(); 
+            barChart.addStatLabels();   
         });
-
     </script>
 
-<body>
-<div id="bar-chart"></div>
+<body style="padding-top:60px; padding-left:40px">
+    <button data-set="barb" onclick="barChart.transition('#bar-chart', 'barb')">Barbarian</button>
+    <button data-set="monk" onclick="barChart.transition('#bar-chart', 'monk')">Monk</button>
+    <button data-set="wiz" onclick="barChart.transition('#bar-chart', 'wiz')">Wizard</button>
+    <button data-set="witch" onclick="barChart.transition('#bar-chart', 'witch')">Witch Doctor</button>
+    <div id="bar-chart" style=" "></div>
 </body>
 </html>

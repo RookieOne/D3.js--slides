@@ -53,9 +53,8 @@ treeLayout = {
   addNodeLabels: function() {
     treeLayout.node.append("svg:text")
       .attr("class", "node-label")
-      .attr("dx", function(d) { return d.children ? -8 : 8; })
-      .attr("dy", 3)
-      .attr("text-anchor", function(d) { return d.children ? "end" : "start"; })
+      .attr("dx", 10)
+      .attr("dy", 6)
       .text(function(d) { return d.name; });   
   },
   addLinks: function() {

@@ -53,7 +53,7 @@ lineChart= {
                 .attr("class", "x-axis")
                 .attr("width", lineChart.width)
                 .attr("transform", "translate(0," + lineChart.height + ")")
-                .call(xAxis);
+                .call(xAxis);    
     },
     addYaxis: function() {
         var yAxis = d3.svg.axis()

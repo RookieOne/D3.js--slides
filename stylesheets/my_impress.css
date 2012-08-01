@@ -19,7 +19,7 @@ body {
     box-sizing:         border-box;
 
     /*font-family: 'PT Serif', georgia, serif;*/
-    font-size: 56px;
+    font-size: 46px;
     line-height: 1.5;
 }
 
@@ -58,17 +58,17 @@ svg {
 }
 
 .barChartStep {
-  width: 1000px;
+  width: 900px;
   font-size:30px;
 }
 
 .lineChartStep {
-  width: 1000px;
+  width: 900px;
   font-size:32px;  
 }
 
 .treeChartStep {
-  width: 1000px;
+  width: 900px;
   font-size:30px;  
 }
 
@@ -84,11 +84,11 @@ button {
 
 .usa {
   height: 500px;
-  width: 1100px;
+  width: 1000px;
 }
 
 .finalStep {
-  width:1500px;
+  width:900px;
 }
 
 ol {

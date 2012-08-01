@@ -43,6 +43,20 @@
             <h1>D3.js</h1>
         </div>
 
+        <div class="step" data-x="-2000" data-y="-230">
+            <p>I'm Jonathan Birkholz</p>
+            <a href="https://github.com/rookieone">https://github.com/rookieone</a>
+        </div>
+        <div class="step" data-x="-1500" data-y="150" data-rotate="90">
+            <p>Free lance rubyist</p>
+            <a href="http://www.birkholzcreative.com">http://www.birkholzcreative.com</a>
+        </div>
+
+        <div class="step" data-x="-2150" data-y="230" data-rotate="180" style="width:1000px">
+            <p>JavaScript enthusiast</p>
+            <a href="http://www.meetup.com/houston-js/">http://www.meetup.com/houston-js/</a>
+        </div>        
+
         <!-- What is D3 -->
         <div class="step" data-x="600" data-y="-200" data-scale="1">
             <h2>What is D3.js?</h2>
@@ -52,12 +66,10 @@
         </div>
 
         <!-- So Charts -->
-        <div class="step" data-x="600" data-y="100">
+        <div class="step" data-x="600" data-y="150">
             <h2>So Charts?</h2>            
-        </div>       
-        <div class="step" data-x="600" data-y="200" data-scale="0.5">
             <p>Yes... and no.</p>
-        </div>       
+        </div>               
 
 
         <!-- Pop Pyramid -->
@@ -68,14 +80,14 @@
         </div>
 
         <!-- Also create -->
-        <div class="step" data-x="2500" data-y="0" data-z="-1000">
+        <div class="step" data-x="2000" data-y="0" data-z="-1000">
             <p>But you can also create...</p>
             <img src="images/dow_jones.png" height="450px" />
             <p class="footnote">Source: D3.js Sample; Dow Jones, 1995-2008</p>
         </div>
         
         <!-- or create -->
-        <div class="step" data-x="3500" data-y="0" data-z="-2000">
+        <div class="step" data-x="3500" data-y="0" data-z="-20">
             <p>Or create...</p>
             <img src="images/flare_code_chart.png" height="560px" />
             <p class="footnote">Source: D3.js Sample; Flare Code Size</p>
@@ -101,12 +113,13 @@
         </div>     
 
         <!-- Unbound Creativity -->
-        <div class="step" data-x="0" data-y="3000"  data-rotate="180" data-scale="3" data-rotate-x="-40" data-rotate-y="10" style="font-size:130px; width:1300px">
+        <div class="step" data-x="0" data-y="3000"  data-rotate="180" data-scale="0.3" data-rotate-x="-40" data-rotate-y="90" style="font-size:130px; width:1300px">
             <p>Unbound Creativity</p>
         </div>     
         <div class="step" data-x="-300" data-y="2100"  data-rotate="180" style="width:1300px">
             <p><strong>D3</strong> is not a monolithic framework that seeks to provide every conceivable feature. Instead, D3
         solves the crux of the problem: efficient manipulation of documents based on data.</p>
+            <p class="footnote">Source: d3js.org</p>
         </div>            
 
 
@@ -176,7 +189,7 @@
         <div class="step" data-x="5000" data-y="500" data-scale="1.5" style="width:1300px">
             <p>D3 is more than a charting library</p>
         </div>  
-        <div class="step" data-x="5000" data-y="600" data-scale="0.5">
+        <div class="step" data-x="5500" data-y="600" data-scale="0.5" data-rotate="90">
             <p>... now let's make a chart</p>
         </div>  
 
@@ -197,7 +210,7 @@
         </div> 
 
         <!-- Add SVG -->
-        <div class="step" data-x="4750" data-y="1800">
+        <div class="step barChartStep" data-x="4750" data-y="1800">
             <pre class="prettyprint">
     var g = d3.select("#div-id")
             .append("svg:svg")
@@ -479,7 +492,11 @@
             <button data-set="witch" onclick="barChart.transition('#barChart-label-transitions', 'witch')">Witch Doctor</button>
             <div id="barChart-label-transitions">
             </div>
-        </div>         
+        </div>        
+
+        <div class="step" data-x="7000" data-y="2300" data-rotate-x="45">
+            <h2>Pretty darn cool right?</h2>
+        </div> 
 
 
         <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -488,15 +505,14 @@
 
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
 
-        <div class="step" data-x="10000" data-y="0">            
+        <div id="line-chart" class="step" data-x="10000" data-y="0">            
             <h2>Line Chart & Axes</h2>
         </div> 
-        <div class="step" data-x="9900" data-y="100" data-scale=".5" style="width:1300px">            
+        <div class="step" data-x="11000" data-y="100" data-scale=".5" data-rotate="60" style="width:1300px">            
             <p>Did you know the plural of axis is axes?</p>
-        </div>
-        <div class="step" data-x="9800" data-y="200" data-scale=".5">            
             <p>Chop Chop</p>
         </div>
+        
 
         <div class="step lineChartStep" data-x="10000" data-y="550">
             <pre class="prettyprint">
@@ -605,9 +621,12 @@
             .attr("cx", function(d) { return x(d.date); })
             .attr("r", 4);</pre>
         </div>           
-        <div id="lineChart-addPoints" class="step" data-x="10750" data-y="3750">
-            
+        <div id="lineChart-addPoints" class="step" data-x="10750" data-y="3750">            
         </div> 
+
+        <div class="step" data-x="10000" data-y="4350" data-rotate-x="45">
+            <h2>We rock!</h2>
+        </div>        
 
         <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -653,7 +672,7 @@
             <pre class="prettyprint">
     // setup layout
     var tree = d3.layout.tree().size([width - margin, height - margin]);
-    var nodes = nodes(data);
+    var nodes = tree.nodes(data);
     var links = tree.links(nodes);
     var diagonal = d3.svg.diagonal()
             .projection(function(d) {
@@ -684,13 +703,8 @@
     // add node labels       
     node.append("svg:text")
       .attr("class", "node-label")
-      .attr("dx", function(d) { 
-          return d.children ? -8 : 8; 
-      })
-      .attr("dy", 3)
-      .attr("text-anchor", function(d) { 
-        return d.children ? "end" : "start"; 
-      })
+      .attr("dx", 10)
+      .attr("dy", 6)      
       .text(function(d) { return d.name; });</pre>
         </div>     
        <div id="tree-addNodeLabels" class="step" data-x="12600" data-y="2450">
@@ -707,9 +721,13 @@
           .attr("class", "link")
           .attr("d", diagonal);</pre>
         </div>     
-       <div id="tree-addLinks" class="step" data-x="12600" data-y="3000">
-            
-    </div>     
+        <div id="tree-addLinks" class="step" data-x="12600" data-y="3000">
+        </div>     
+
+
+        <div class="step" data-x="12000" data-y="3500" data-rotate-x="45">
+            <p>Simple and effective</p>
+        </div>    
 
         <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -732,11 +750,9 @@
             <h2>Using SVG Maps</h2>
         </div>
 
-        <div class="step" data-x="14000" data-y="300">
-            <p>United States in SVG</p>
-        </div>
 
-        <div class="step" data-x="14000" data-y="650">
+        <div class="step" data-x="14000" data-y="500">
+            <p>United States in SVG</p>
             <iframe src="examples/usa.html" class="usa"></iframe>
             <p class="footnote">
                 http://en.wikipedia.org/wiki/File:Blank_US_Map.svg
@@ -813,13 +829,14 @@
     </div>
 
 
+
     <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
     Final Comments
 
     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ --> 
 
-    <div class="step" data-x="16000" data-y="0">
+    <div id="final-comments" class="step" data-x="16000" data-y="0">
         <h2>Final Comments</h2>
     </div>
 
@@ -839,7 +856,7 @@
     </ol>
     </div>  
 
-    <div class="step finalStep" data-x="15880" data-y="620" data-scale="0.4">
+    <div class="step finalStep" data-x="15880" data-y="640" data-scale="0.4">
       <h2>Lines of Code</h2>
     <ul>
         <li>D3 can result in a large number of lines of code</li>
@@ -847,12 +864,27 @@
        </ul>
     </div>     
 
-<div class="step finalStep" data-x="15880" data-y="800" data-scale="0.4">
+<div class="step finalStep" data-x="15880" data-y="900" data-scale="0.4">
     <h2>Working with D3</h2>
     <p>It is awesome telling clients and designers:</p>
     <strong>Yes I can do that.</strong>
     <p>Other charting libraries might get a chart out faster but few can compete with D3's flexibility.</p>      
 </div>
+
+<div class="step finalStep" data-x="15880" data-y="1100" data-scale="0.4">
+    <h2>Other libraries</h2>  
+    <ul>
+        <li><a href="http://www.highcharts.com/">High Charts</a></li>
+        <li><a href="http://raphaeljs.com/" target="_blank">Rafael</a></li>
+    </ul>
+</div>
+
+<div class="step finalStep" data-x="15880" data-y="1300" data-scale="0.4">
+    <h2>Licensing</h2>
+    <p>BSD-3-Clause</p>
+    <p>Commerical use approved</p>
+</div>
+
 
     <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -881,11 +913,11 @@
 </div>
 
 <div class="step" data-x="17000" data-y="1800">
-    <h2>Any Questions?</h2>
+    <h2>Thanks! Any Questions?</h2>
 </div>
 
         <!-- Overview -->
-        <div class="step" data-x="6000" data-y="3000" data-scale="10">
+        <div class="step" data-x="6000" data-y="3000" data-scale="15">
             
         </div>        
     </div>
