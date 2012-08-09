@@ -14,12 +14,12 @@
 
     <!-- <link href="./stylesheets/impress.css" rel="stylesheet" /> -->
     <!-- <link href="./stylesheets/bootstrap.min.css" rel="stylesheet" /> -->
-    <link href="./stylesheets/reset.css" rel="stylesheet" />
+    <!-- <link href="./stylesheets/reset.css" rel="stylesheet" /> -->
     <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
     <link href="./stylesheets/prettify.css" rel="stylesheet" />
     <!-- <link href="./stylesheets/my_impress.css" rel="stylesheet" /> -->
 
-    <!-- <link rel="stylesheet" href="reveal/reset.css"> -->
+    <link rel="stylesheet" href="reveal/reset.css">
     <link rel="stylesheet" href="reveal/custom.css">
     <link rel="stylesheet" href="reveal/print.css" type="text/css" media="print">    
 
@@ -49,29 +49,33 @@
 <!-- Any section element inside of this container is displayed as a slide -->
 <div class="slides">
 
-<section>
+<section class="center-slide">
     <h1>D3.js</h1>
 </section>
 
 <section>
-    <p>I'm Jonathan Birkholz</p>
+    <h3>I'm Jonathan Birkholz</h3>
     <a href="https://github.com/rookieone">https://github.com/rookieone</a>
-    <p>Free lance rubyist</p>
-    <a href="http://www.birkholzcreative.com">http://www.birkholzcreative.com</a>
-    <p>JavaScript enthusiast</p>
-    <a href="http://www.meetup.com/houston-js/">http://www.meetup.com/houston-js/</a>
+    <div class="fragment subsection">
+      <h3>Free lance rubyist</h3>
+      <a href="http://www.birkholzcreative.com">http://www.birkholzcreative.com</a>
+    </div>
+    <div class="fragment subsection">
+      <h3>JavaScript enthusiast</h3>
+      <a href="http://www.meetup.com/houston-js/">http://www.meetup.com/houston-js/</a>
+    </div>
 </section>        
 
 <!-- What is D3 -->
-<section>
-    <h2>What is D3.js?</h2>
-    <p><strong>D3</strong> is a JavaScript library for manipulating documents based on data.</p>
+<section class="center-slide">
+  <h2>What is D3.js?</h2>
+  <p><strong>D3</strong> is a JavaScript library for manipulating documents based on data.</p>
 </section>
 
 <!-- So Charts -->
-<section>
-    <h2>So Charts?</h2>            
-    <p>Yes... and no.</p>
+<section class="center-slide">
+  <h2>So Charts?</h2>            
+  <p>Yes... and no.</p>
 </section>               
 
 
@@ -92,35 +96,27 @@
 <!-- or create -->
 <section>
     <p>Or create...</p>
-    <img src="images/flare_code_chart.png" height="560px" />
+    <img src="images/flare_code_chart.png" height="450px" />
     <p class="footnote">Source: D3.js Sample; Flare Code Size</p>
-</section>
-
-<!-- Data Drives Dom -->
-<section>
-    <h2>Data Drives DOM</h2>
 </section>
 
 <!-- Data Drives Dom Explanation -->
 <section>
-    <p>
-        <strong>D3</strong> allows you to bind arbitrary data to a Document Object Model (DOM), and then apply data-driven transformations to the document.
-    </p>
+  <h2>Data Driven</h2>
+  <p>
+      <strong>D3</strong> allows you to bind arbitrary data to a Document Object Model (DOM), and then apply data-driven transformations to the document.
+  </p>
 
-    <p class="footnote">Source: d3js.org</p>
+  <p class="footnote">Source: d3js.org</p>
 </section>
 
 <!-- What does that mean? -->
-<section>
-  <h2>What does that mean?</h2>
-</section>     
+<section class="center-slide">
+  <h3>What does that mean?</h3>
+  <h2 class="fragment">Unbound Creativity</h2>
+</section>         
 
-<!-- Unbound Creativity -->
-<section>
-    <p>Unbound Creativity</p>
-</section>     
-
-<section>
+<section class="center-slide">
     <p><strong>D3</strong> is not a monolithic framework that seeks to provide every conceivable feature. Instead, D3
 solves the crux of the problem: efficient manipulation of documents based on data.</p>
     <p class="footnote">Source: d3js.org</p>
@@ -132,7 +128,7 @@ solves the crux of the problem: efficient manipulation of documents based on dat
 MAKE A TABLE
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
-<section>
+<section class="center-slide">
   <h2>Making a Table</h2>
 </section>     
 
@@ -150,9 +146,10 @@ var data = [
 ];</pre>
 </section>  
 
-        <!-- Add Headers -->
-        <section>
-            <pre class="prettyprint">
+<!-- Add Headers -->
+<section>
+<section>
+    <pre class="prettyprint">
     d3.select("#table-id")
         .append("tr")
         .selectAll("th")
@@ -162,14 +159,15 @@ var data = [
         .text(function(d) {
             return d.stat;
         });</pre>  
-        </section> 
-
+</section> 
 <section>
-<div id="makeTable-addHeaders" class="step" data-x="3000" data-y="2400"> 
+<div id="makeTable-addHeaders"> 
 </div>
 </section> 
+</section>
 
 <!-- Add Rows -->
+<section>
 <section>
     <pre class="prettyprint">
 d3.select("#table-id")
@@ -187,7 +185,11 @@ d3.select("#table-id")
 <div id="makeTable-addRow" class="step" data-x="3000" data-y="3400"> 
 </div>   
 </section>
+</section>
 
+<section class="center-slide">
+  <p>With our data, we built a table.</p>
+</section>
 
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -197,10 +199,8 @@ Bar Chart
 
 <!-- More than a charting library -->
 <section>
-    <p>D3 is more than a charting library</p>
-</section>  
-<section>
-    <p>... now let's make a chart</p>
+    <h2><strong>D3</strong> is more than a charting library</h2>
+    <p class="fragment">... now let's make a chart</p>
 </section>  
 
 <section>
@@ -221,6 +221,8 @@ var data = [
 
 <!-- Add SVG -->
 <section>
+<section>
+    <h3>Add SVG</h3>
     <pre class="prettyprint">
 var g = d3.select("#div-id")
     .append("svg:svg")
@@ -230,16 +232,18 @@ var g = d3.select("#div-id")
 </section>
 
 <section>   
-<div id="barChart-addSvg" class="step" data-x="5850" data-y="1800"> 
+<div id="barChart-addSvg"> 
 </div>  
+</section>
 </section>
 
 <!-- Talk about Scales -->
 <section>
-    <p>Let's talk about scales</h3>
+  <h2>Let's talk about scales</h2>
 </section>
 
 <!-- Linear Scale -->
+<section>
 <section>
     <pre class="prettyprint">
 var scaleFx = d3.scale.linear()
@@ -253,8 +257,10 @@ var scaledvalue = scaleFx(domainValue);</pre>
     <table id="linear-scale" style="font-size:36px">
     </table>
 </section>
+</section>
 
 <!-- Ordinal Scale -->
+<section>
 <section>
     <pre class="prettyprint">
 var scaleFx = d3.scale.ordinal()
@@ -268,9 +274,10 @@ var rangeValue = scaleFx(category);</pre>
     <table id="ordinal-scale" style="font-size:36px">
     </table>
 </section>
+</section>
 
 <section>
-    <p>Now back to our bar chart</p>
+  <h2>Now back to our bar chart</h2>
 </section>
 
 <!-- Set Scale Fxs -->
@@ -292,6 +299,7 @@ var y = d3.scale.linear()
             
 <!-- Add Basic Bars -->
 <section>
+<section>
     <pre class="prettyprint">
 // create bars
 g.selectAll(".bars")
@@ -312,9 +320,11 @@ g.selectAll(".bars")
   <div id="barChart-addBasicBars" class="step" data-x="5250" data-y="3400">            
   </div>
 </section>
+</section>
 
 
 <!-- Add Bars -->
+<section>
 <section>
     <pre class="prettyprint">
 // add class to bars
@@ -339,8 +349,10 @@ g.selectAll(".bars")
   <div id="barChart-addBars" class="step" data-x="5250" data-y="4100">            
   </div>
 </section>
+</section>
 
 <!-- X Axis -->
+<section>
 <section>
   <pre class="prettyprint">
     // x-axis
@@ -356,8 +368,10 @@ g.selectAll(".bars")
   <div id="barChart-xAxis" class="step" data-x="5250" data-y="4750">            
   </div>        
 </section>
+</section>
 
         <!-- X Ticks -->
+<section>
 <section>
     <pre class="prettyprint">
 // x-ticks
@@ -380,8 +394,10 @@ g.selectAll("x-tick")
         <div id="barChart-xTicks" class="step" data-x="5250" data-y="5400">            
         </div>  
 </section>
+</section>
 
 <!-- X Labels -->
+<section>
 <section>
 <pre class="prettyprint">
 // x-labels
@@ -404,8 +420,11 @@ g.selectAll("x-label")
   <div id="barChart-xLabels" class="step" data-x="5250" data-y="6100">            
   </div>
 </section>
+</section>
+
 
 <!-- Bar Labels -->
+<section>
 <section>
   <pre class="prettyprint">
 // bar labels
@@ -429,8 +448,10 @@ g.selectAll("bar-label")
   <div id="barChart-barLabels" class="step" data-x="5250" data-y="6800">            
   </div> 
 </section>
+</section>
 
-        <!-- Stat Labels -->
+<!-- Stat Labels -->
+<section>
 <section>
   <pre class="prettyprint">
     // stat labels
@@ -455,10 +476,11 @@ g.selectAll("bar-label")
   <div id="barChart-statLabels" class="step" data-x="5250" data-y="7600">            
   </div> 
 </section>
+</section>
 
 <!-- Transitions -->
-<section>
-    <h2>Time for magic</h2>
+<section class="center-slide">
+  <h2>Time for magic</h2>
 </section>
 
 <section>
@@ -483,503 +505,526 @@ var data = {
 }</pre>
   </section>
 
-        <section>
-            <pre class="prettyprint">
-    // transition bars
-    var duration = 2000;
-    g.selectAll(".bars")
-        .data(data)
-        .transition()
-        .duration(duration)
-        .attr("width", function(d) {
-            return x(d.value) - margin;
-        });</pre>
-        </section>
+<section>
+<section>
+<pre class="prettyprint">
+// transition bars
+var duration = 2000;
+g.selectAll(".bars")
+    .data(data)
+    .transition()
+    .duration(duration)
+    .attr("width", function(d) {
+        return x(d.value) - margin;
+    });</pre>
+    </section>
 
-        <section>
-            <button data-set="barb" onclick="barChart.transitionBars('#barChart-transitions', 'barb')">Barbarian</button>
-            <button data-set="monk" onclick="barChart.transitionBars('#barChart-transitions', 'monk')">Monk</button>
-            <button data-set="wiz" onclick="barChart.transitionBars('#barChart-transitions', 'wiz')">Wizard</button>
-            <button data-set="witch" onclick="barChart.transitionBars('#barChart-transitions', 'witch')">Witch Doctor</button>
-            <div id="barChart-transitions">
-            </div>
-        </section> 
+<section>
+    <button data-set="barb" onclick="barChart.transitionBars('#barChart-transitions', 'barb')">Barbarian</button>
+    <button data-set="monk" onclick="barChart.transitionBars('#barChart-transitions', 'monk')">Monk</button>
+    <button data-set="wiz" onclick="barChart.transitionBars('#barChart-transitions', 'wiz')">Wizard</button>
+    <button data-set="witch" onclick="barChart.transitionBars('#barChart-transitions', 'witch')">Witch Doctor</button>
+    <div id="barChart-transitions">
+    </div>
+</section> 
+</section>
+
 
         <!-- Transition Labels-->
-        <section>
-            <pre class="prettyprint">
-    // transition stat labels
-    var duration = 2000;
-    g.selectAll(".stat-label")
-        .data(data)
-        .transition()
-        .duration(duration)
-        .attr("x", function(d) {
-            return x(d.value) - 10;
-        })
-        .text(function(d) {
-                return d.value;
-        });</pre>
-        </section>
+<section>
+<section>
+        <pre class="prettyprint">
+// transition stat labels
+var duration = 2000;
+g.selectAll(".stat-label")
+    .data(data)
+    .transition()
+    .duration(duration)
+    .attr("x", function(d) {
+        return x(d.value) - 10;
+    })
+    .text(function(d) {
+            return d.value;
+    });</pre>
+    </section>
 
-        <section>
-            <button data-set="barb" onclick="barChart.transition('#barChart-label-transitions', 'barb')">Barbarian</button>
-            <button data-set="monk" onclick="barChart.transition('#barChart-label-transitions', 'monk')">Monk</button>
-            <button data-set="wiz" onclick="barChart.transition('#barChart-label-transitions', 'wiz')">Wizard</button>
-            <button data-set="witch" onclick="barChart.transition('#barChart-label-transitions', 'witch')">Witch Doctor</button>
-            <div id="barChart-label-transitions">
-            </div>
-        </section>        
+<section>
+    <button data-set="barb" onclick="barChart.transition('#barChart-label-transitions', 'barb')">Barbarian</button>
+    <button data-set="monk" onclick="barChart.transition('#barChart-label-transitions', 'monk')">Monk</button>
+    <button data-set="wiz" onclick="barChart.transition('#barChart-label-transitions', 'wiz')">Wizard</button>
+    <button data-set="witch" onclick="barChart.transition('#barChart-label-transitions', 'witch')">Witch Doctor</button>
+    <div id="barChart-label-transitions">
+    </div>
+</section>        
+</section>
 
-        <section>
-            <h2>Pretty darn cool right?</h2>
-        </section> 
+<section class="center-slide">
+  <h2>Pretty darn cool right?</h2>
+</section> 
 
 
-        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-        Line Chart
+Line Chart
 
-        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
 
-        <section>
-            <h2>Line Chart & Axes</h2>
-        </section> 
-        <section>
-            <p>Did you know the plural of axis is axes?</p>
-            <p>Chop Chop</p>
-        </section>
-        
-
-        <section>
-            <pre class="prettyprint">
-    // setting up our data
-    var data = [
-        { date:Date.parse("4/6/2012"), hours:3 },
-        { date:Date.parse("4/16/2012"), hours:4 },
-        { date:Date.parse("4/26/2012"), hours:2 },
-        { date:Date.parse("5/6/2012"), hours:5 },
-        { date:Date.parse("5/26/2012"), hours:3 },
-        { date:Date.parse("5/30/2012"), hours:6 }
-    ]</pre>
-        </section>
+<section>
+    <h2>Line Chart & <br />
+      <strike>Axises</strike><br />
+      <strike>Axii</strike><br />
+      Axes</h2>
+</section>
+      
+<section>
+<pre class="prettyprint">
+// setting up our data
+var data = [
+    { date:Date.parse("4/6/2012"), hours:3 },
+    { date:Date.parse("4/16/2012"), hours:4 },
+    { date:Date.parse("4/26/2012"), hours:2 },
+    { date:Date.parse("5/6/2012"), hours:5 },
+    { date:Date.parse("5/26/2012"), hours:3 },
+    { date:Date.parse("5/30/2012"), hours:6 }
+]</pre>
+</section>  
 
         <!-- Set X Scale -->
-        <section>
-            <pre class="prettyprint">
-    // setup X Scale
-    var startDate = Date.parse("4/1/2012");
-    var endDate = Date.parse("5/30/2012");
+<section>
+<pre class="prettyprint">
+// setup X Scale
+var startDate = Date.parse("4/1/2012");
+var endDate = Date.parse("5/30/2012");
 
-    var x = d3.time.scale()
-            .domain([startDate, endDate])
-            .range([margin, width]);</pre>
-        </section>        
+var x = d3.time.scale()
+        .domain([startDate, endDate])
+        .range([margin, width]);</pre>
+</section>        
 
-        <!-- Set Y Scale -->
-        <section>
-            <pre class="prettyprint">
-    // setup Y Scale
-    var y = d3.scale.linear()
-        .domain([0, 6])
-        .range([height, margin]);</pre>
-        </section>   
+<!-- Set Y Scale -->
+<section>
+<pre class="prettyprint">
+// setup Y Scale
+var y = d3.scale.linear()
+    .domain([0, 6])
+    .range([height, margin]);</pre>
+</section>   
 
-        <!-- Line -->
-        <section>
-            <pre class="prettyprint">
-    // create line
-    var line = d3.svg.line()
-                .x(function(d) {
-                    return x(d.date);
-                })
-                .y(function(d) {
-                    return y(d.hours);
-                });
-    g.append("svg:path")
-        .attr("class", "line")
-        .attr("d", line(data));</pre>
-        </section>  
-
-        <section>         
-        <div id="lineChart-addLine" class="step" data-x="10700" data-y="1800">
-            
-        </div> 
-      </section>
-
-        <!-- X Axis -->
-        <section>
-            <pre class="prettyprint">
-    // add X Axis
-    var xAxis = d3.svg.axis()
-        .orient("bottom")
-        .scale(x)
-        .tickSubdivide(0)
-        .tickSize(6, 3, 1)
-        .ticks(d3.time.weeks, 1)
-        .tickFormat(d3.time.format("%m/%d"));
-
-    g.append("svg:g")
-            .attr("class", "x-axis")
-            .attr("width", width)
-            .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);</pre>
-        </section>  
-        <section>         
-        <div id="lineChart-xAxis" class="step" data-x="10700" data-y="2500">
-            
-        </div>   
-        </section>      
-
-        <!-- Y Axis -->
-        <section>
-            <pre class="prettyprint">
-    // add Y Axis
-    var yAxis = d3.svg.axis()
-            .orient("left")
-            .ticks(3)
-            .tickSize(6,1)
-            .scale(y);
-
-    g.append("svg:g")
-            .attr("class", "y-axis")
-            .attr("transform", "translate(" + margin + ",0)")
-            .call(yAxis);</pre>
-        </section>
-
-        <section>           
-        <div id="lineChart-yAxis" class="step" data-x="10700" data-y="3200">
-            
-        </div>   
-        </section> 
-
-        <!-- Add Points -->
-        <section>
-        <pre class="prettyprint">
-    // add points
-    g.selectAll(".trade-point")
-            .data(data)
-            .enter()
-            .append("svg:circle")
-            .attr("class", "trade-point")
-            .attr("cy", function(d) { return y(d.hours); })
-            .attr("cx", function(d) { return x(d.date); })
-            .attr("r", 4);</pre>
-        </section>   
-
-        <section>        
-        <div id="lineChart-addPoints" class="step" data-x="10750" data-y="3750">            
-        </div> 
-      </section>
-
-        <section>
-            <h2>We rock!</h2>
-        </section>        
-
-        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-        Tree Layout
-
-        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
-
-        <section>
-            <h2>Using Layouts</h2>
-        </section> 
-        <section>
-            <pre class="prettyprint">
-    // our data
-    var data = {
-      name: "Foobar, Inc.",
-      children: [ {
-          name:"Accounting",
-          children: [
-              { name: "Bob", salary: 50000 },
-              { name: "Sue", salary: 50000 }
-          ]
-      }, {
-          name:"Computer Science",
-          children: [
-              { name: "Joe", salary: 150000 },
-              { name: "Bubba", salary: 30000 }
-          ]
-      }]};</pre>
-        </section>     
-
-        <section>
-            <pre class="prettyprint">
-    // create svg
-    var g = d3.select("#tree-chart")
-                .append("svg:svg")
-                .attr("width", width + margin)
-                .attr("height", height + margin)
-                .append("svg:g")
-                .attr("transform", "translate(0, 20)");</pre>
-        </section>      
-
-        <section>
-            <pre class="prettyprint">
-    // setup layout
-    var tree = d3.layout.tree().size([width - margin, height - margin]);
-    var nodes = tree.nodes(data);
-    var links = tree.links(nodes);
-    var diagonal = d3.svg.diagonal()
-            .projection(function(d) {
-                return [d.x, d.y];
+<!-- Line -->
+<section>
+<section>
+<pre class="prettyprint">
+// create line
+var line = d3.svg.line()
+            .x(function(d) {
+                return x(d.date);
+            })
+            .y(function(d) {
+                return y(d.hours);
             });
-          </pre>
-        </section>
+g.append("svg:path")
+    .attr("class", "line")
+    .attr("d", line(data));</pre>
+</section>  
 
-        <section>
-            <pre class="prettyprint"> 
-    // add nodes       
-    var node = g.selectAll("g.node")
-            .data(nodes)
-            .enter()
-            .append("svg:g")
-            .attr("transform", function(d) {
-                return "translate(" + d.x + "," + d.y + ")";
-            });
-
-    node.append("svg:circle")
-            .attr("r", 3.5);</pre>
-        </section>  
-        <section>   
-       <div id="tree-addNodes" class="step" data-x="12750" data-y="1850">
-            
-    </div> 
-  </section>
-
-        <section>
-            <pre class="prettyprint"> 
-    // add node labels       
-    node.append("svg:text")
-      .attr("class", "node-label")
-      .attr("dx", 10)
-      .attr("dy", 6)      
-      .text(function(d) { return d.name; });</pre>
-        </section>  
-
-        <section>   
-       <div id="tree-addNodeLabels" class="step" data-x="12600" data-y="2450">
-            
-    </div> 
-  </section>
-
-        <section>
-            <pre class="prettyprint"> 
-    // add links
-    g.selectAll("pathlink")
-          .data(links)
-          .enter()
-          .append("svg:path")
-          .attr("class", "link")
-          .attr("d", diagonal);</pre>
-        </section>  
-
-        <section>   
-        <div id="tree-addLinks" class="step" data-x="12600" data-y="3000">
-        </div>   
-        </section>  
-
-
-        <section>
-            <p>Simple and effective</p>
-        </section>    
-
-        <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-        Using SVG Maps
-
-        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
-
-
-        <section>
-            <h2>Examples</h2>
-            <ul>
-                <li><a href="http://mbostock.github.com/d3/ex/bullet.html" target="_blank">Bullet Charts</a></li>
-                <li><a href="http://bl.ocks.org/1256572" target="_blank">Show Reel</a></li>
-                <li><a href="http://mbostock.github.com/d3/talk/20111116/airports.html" target="_blank">Airports</a></li>
-                <li><a href="http://mbostock.github.com/d3/talk/20111018/choropleth.html" target="_blank">Unemployment Map</a></li>
-            </ul>            
-        </section> 
-
-        <section>
-            <h2>Using SVG Maps</h2>
-        </section>
-
-
-        <section>
-            <p>United States in SVG</p>
-            <iframe src="examples/usa.html" class="usa"></iframe>
-            <p class="footnote">
-                http://en.wikipedia.org/wiki/File:Blank_US_Map.svg
-            </p>
-        </section>
-
-        <section>
-            <pre class="prettyprint"> 
-    // our data
-    var data = [{ state:"TX", value:65 },
-                { state:"WA", value:54 },
-                { state:"CA", value:25 },
-                { state:"CO", value:35 },
-                { state:"AL", value:72 },
-                { state:"FL", value:13 },
-                { state:"OK", value:22 },
-                { state:"OH", value:69 },
-                { state:"MI", value:54 },
-                { state:"VA", value:38 },
-                { state:"MS", value:43 },
-                { state:"GA", value:49 },
-                { state:"NY", value:90 }];</pre>
-        </section>     
-
-    <section>
-        <pre class="prettyprint">
-        // set opacity in states
-        var opacity = d3.scale.linear().domain([0,100]).range([.5, 1]);
-        for(var i in data) {
-            var d = data[i];
-            d3.selectAll("#" + d.state)
-                    .attr("style", "")
-                    .attr("class", "default-style")
-                    .attr("opacity", opacity(d.value))
-                    .attr("fill", "#0000FF");
-        }</pre>
-    </section>
-    <section>
-    <div class="step" data-x="15000" data-y="2000">
-        <iframe src="examples/usa.html#opacity" class="usa"></iframe>
-    </div>
-  </section>
-
-    <section>
-        <pre class="prettyprint">
-    // set color to states
-    var color = d3.scale.linear().domain([0,100]).range(["#000000", "#0000FF"]);
-    for(var i in data) {
-        var d = data[i];
-        d3.selectAll("#" + d.state)
-                .attr("style", "")
-                .attr("class", "default-style")
-                .attr("opacity", 1)
-                .attr("fill", color(d.value));
-    }</pre>
-    </section>
-
-    <section>
-    <div class="step" data-x="15000" data-y="2650">
-        <iframe src="examples/usa.html#color" class="usa"></iframe>
-    </div>
-  </section>
-
-    <section>
-        <pre class="prettyprint">
-    // using color brewer
-    var color = d3.scale.ordinal().domain([0,100]).range(colorbrewer.Blues[9]);
-    for(var i in data) {
-        var d = data[i];
-        d3.selectAll("#" + d.state)
-                .attr("style", "")
-                .attr("class", "default-style")
-                .attr("opacity", 1)
-                .attr("fill", color(d.value));
-    }</pre>
-    </section>
-    <section>
-    <div class="step" data-x="15000" data-y="3200">
-        <iframe src="examples/usa.html#brewer" class="usa"></iframe>
-    </div>
-  </section>
-
-
-
-    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-    Final Comments
-
-    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ --> 
-
-    <section>
-        <h2>Final Comments</h2>
-    </section>
-
-    <section>
-        <h2>80/20</h2>
-        <p>80% of the chart will be done in 20% of the time.</p>
-        <p>The last 20% of work getting the chart awesome will take 80% of your time.</p>
-    </section>    
-
-    <section>
-    <h2>Good Workflow</h2>
-    <ol>
-        <li>Create visual with mock data in separate html file</li>
-        <li>Finalize data format</li>
-        <li>Test your components output data in correct format</li>
-        <li>Wire your data to your visual</li>
-    </ol>
-    </section>  
-
-    <section>
-      <h2>Lines of Code</h2>
-    <ul>
-        <li>D3 can result in a large number of lines of code</li>
-        <li>But the code is simple once you understand the pattern.</li>
-       </ul>
-    </section>     
-
-<section>
-    <h2>Working with D3</h2>
-    <p>It is awesome telling clients and designers:</p>
-    <strong>Yes I can do that.</strong>
-    <p>Other charting libraries might get a chart out faster but few can compete with D3's flexibility.</p>      
+<section>         
+<div id="lineChart-addLine" class="step" data-x="10700" data-y="1800"> 
+</div> 
+</section>
 </section>
 
+<!-- X Axis -->
 <section>
-    <h2>Other libraries</h2>  
-    <ul>
-        <li><a href="http://www.highcharts.com/">High Charts</a></li>
-        <li><a href="http://raphaeljs.com/" target="_blank">Rafael</a></li>
-    </ul>
-</section>
+<section>
+<pre class="prettyprint">
+// add X Axis
+var xAxis = d3.svg.axis()
+    .orient("bottom")
+    .scale(x)
+    .tickSubdivide(0)
+    .tickSize(6, 3, 1)
+    .ticks(d3.time.weeks, 1)
+    .tickFormat(d3.time.format("%m/%d"));
 
-<section>
-    <h2>Licensing</h2>
-    <p>BSD-3-Clause</p>
-    <p>Commerical use approved</p>
+g.append("svg:g")
+        .attr("class", "x-axis")
+        .attr("width", width)
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);</pre>
+</section>  
+<section>         
+<div id="lineChart-xAxis" class="step" data-x="10700" data-y="2500">    
+</div>   
+</section>      
 </section>
 
 
-    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-    Wrap up
-
-    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ --> 
-
-    <section>
-        <h2>Continue your learning...</h2>
-    </section>
-
+<!-- Y Axis -->
 <section>
-    <h2>D3.js</h2>
-    <p><a href="http://d3js.org/">http://d3js.org/</a></p>
-    <p><a href="https://github.com/mbostock/d3">https://github.com/mbostock/d3</a></p>
+<section>
+<pre class="prettyprint">
+// add Y Axis
+var yAxis = d3.svg.axis()
+        .orient("left")
+        .ticks(3)
+        .tickSize(6,1)
+        .scale(y);
+
+g.append("svg:g")
+        .attr("class", "y-axis")
+        .attr("transform", "translate(" + margin + ",0)")
+        .call(yAxis);</pre>
 </section>
 
-<section>
-    <h2>My Slides</h2>
-    <p><a href="https://github.com/RookieOne/D3.js--slides">https://github.com/RookieOne/D3.js--slides</a></p>
-</section>
-
-<section>
-    <h2>Impress.js</h2>
-    <p><a href="http://bartaz.github.com/impress.js">http://bartaz.github.com/impress.js</a></p>
-</section>
-
-<section>
-    <h2>Thanks! Any Questions?</h2>
-</section>
+<section>           
+<div id="lineChart-yAxis" class="step" data-x="10700" data-y="3200">
     
+</div>   
+</section>
+</section> 
+
+<!-- Add Points -->
+<section>
+<section>
+<pre class="prettyprint">
+// add points
+g.selectAll(".trade-point")
+        .data(data)
+        .enter()
+        .append("svg:circle")
+        .attr("class", "trade-point")
+        .attr("cy", function(d) { return y(d.hours); })
+        .attr("cx", function(d) { return x(d.date); })
+        .attr("r", 4);</pre>
+</section>   
+<section>        
+<div id="lineChart-addPoints" class="step" data-x="10750" data-y="3750">            
+</div> 
+</section>
+</section>
+
+<section class="center-slide">
+    <h2>We rock!</h2>
+</section>        
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Tree Layout
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
+
+<section>
+  <h2>Using Layouts</h2>
+</section>
+
+<section>
+<pre class="prettyprint">
+// our data
+var data = {
+  name: "Foobar, Inc.",
+  children: [ {
+      name:"Accounting",
+      children: [
+          { name: "Bob", salary: 50000 },
+          { name: "Sue", salary: 50000 }
+      ]
+  }, {
+      name:"Computer Science",
+      children: [
+          { name: "Joe", salary: 150000 },
+          { name: "Bubba", salary: 30000 }
+      ]
+  }]};</pre>
+</section>     
+
+<section>
+<pre class="prettyprint">
+// create svg
+var g = d3.select("#tree-chart")
+            .append("svg:svg")
+            .attr("width", width + margin)
+            .attr("height", height + margin)
+            .append("svg:g")
+            .attr("transform", "translate(0, 20)");</pre>
+</section>
+
+<section>
+<pre class="prettyprint">
+// setup layout
+var tree = d3.layout.tree().size([width - margin, height - margin]);
+var nodes = tree.nodes(data);
+var links = tree.links(nodes);
+var diagonal = d3.svg.diagonal()
+        .projection(function(d) {
+            return [d.x, d.y];
+        });
+</pre>
+</section>
+
+<section>
+<section>
+<pre class="prettyprint"> 
+// add nodes       
+var node = g.selectAll("g.node")
+        .data(nodes)
+        .enter()
+        .append("svg:g")
+        .attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+        });
+
+node.append("svg:circle")
+        .attr("r", 3.5);</pre>
+</section>  
+<section>   
+<div id="tree-addNodes" class="step" data-x="12750" data-y="1850">
+</div> 
+</section>
+</section>
+
+<section>
+<section>
+<pre class="prettyprint"> 
+// add node labels       
+node.append("svg:text")
+  .attr("class", "node-label")
+  .attr("dx", 10)
+  .attr("dy", 6)      
+  .text(function(d) { return d.name; });</pre>
+</section>  
+
+<section>   
+ <div id="tree-addNodeLabels" class="step" data-x="12600" data-y="2450">        
+</div> 
+</section>
+</section>
+
+
+<section>
+<section>
+<pre class="prettyprint"> 
+// add links
+g.selectAll("pathlink")
+      .data(links)
+      .enter()
+      .append("svg:path")
+      .attr("class", "link")
+      .attr("d", diagonal);</pre>
+</section>  
+
+<section>   
+<div id="tree-addLinks" class="step" data-x="12600" data-y="3000">
+</div>   
+</section> 
+</section> 
+
+
+<section class="center-slide">
+    <h2>Simple and effective</h2>
+</section>    
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Using SVG Maps
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
+
+
+<section>
+  <h2>Examples</h2>
+  <ul>
+      <li><a href="http://mbostock.github.com/d3/ex/bullet.html" target="_blank">Bullet Charts</a></li>
+      <li><a href="http://bl.ocks.org/1256572" target="_blank">Show Reel</a></li>
+      <li><a href="http://mbostock.github.com/d3/talk/20111116/airports.html" target="_blank">Airports</a></li>
+      <li><a href="http://mbostock.github.com/d3/talk/20111018/choropleth.html" target="_blank">Unemployment Map</a></li>
+  </ul>            
+</section> 
+
+<section class="center-slide">
+  <h2>Using SVG Maps</h2>
+</section>
+
+
+<section>
+  <p>United States in SVG</p>
+  <iframe src="examples/usa.html" class="usa"></iframe>
+  <p class="footnote">
+      http://en.wikipedia.org/wiki/File:Blank_US_Map.svg
+  </p>
+</section>
+
+<section>
+<pre class="prettyprint"> 
+// our data
+var data = [{ state:"TX", value:65 },
+            { state:"WA", value:54 },
+            { state:"CA", value:25 },
+            { state:"CO", value:35 },
+            { state:"AL", value:72 },
+            { state:"FL", value:13 },
+            { state:"OK", value:22 },
+            { state:"OH", value:69 },
+            { state:"MI", value:54 },
+            { state:"VA", value:38 },
+            { state:"MS", value:43 },
+            { state:"GA", value:49 },
+            { state:"NY", value:90 }];</pre>
+</section>     
+
+<section>
+<section>
+<pre class="prettyprint">
+// set opacity in states
+var opacity = d3.scale.linear().domain([0,100]).range([.5, 1]);
+for(var i in data) {
+    var d = data[i];
+    d3.selectAll("#" + d.state)
+            .attr("style", "")
+            .attr("class", "default-style")
+            .attr("opacity", opacity(d.value))
+            .attr("fill", "#0000FF");
+}</pre>
+</section>
+<section>
+<div class="step" data-x="15000" data-y="2000">
+  <iframe src="examples/usa.html#opacity" class="usa"></iframe>
+</div>
+</section>
+</section>
+
+<section>
+<section>
+<pre class="prettyprint">
+// set color to states
+var color = d3.scale.linear().domain([0,100]).range(["#000000", "#0000FF"]);
+for(var i in data) {
+    var d = data[i];
+    d3.selectAll("#" + d.state)
+            .attr("style", "")
+            .attr("class", "default-style")
+            .attr("opacity", 1)
+            .attr("fill", color(d.value));
+}</pre>
+</section>
+
+<section>
+<div class="step" data-x="15000" data-y="2650">
+  <iframe src="examples/usa.html#color" class="usa"></iframe>
+</div>
+</section>
+</section>
+
+<section>
+<section>
+<pre class="prettyprint">
+// using color brewer
+var color = d3.scale.ordinal().domain([0,100]).range(colorbrewer.Blues[9]);
+for(var i in data) {
+    var d = data[i];
+    d3.selectAll("#" + d.state)
+            .attr("style", "")
+            .attr("class", "default-style")
+            .attr("opacity", 1)
+            .attr("fill", color(d.value));
+}</pre>
+</section>
+<section>
+<div class="step" data-x="15000" data-y="3200">
+  <iframe src="examples/usa.html#brewer" class="usa"></iframe>
+</div>
+</section>
+</section>
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Final Comments
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ --> 
+
+<section>
+  <h2>Final Comments</h2>
+</section>
+
+<section>
+  <h2>80/20</h2>
+  <p>80% of the chart will be done in 20% of the time.</p>
+  <p>The last 20% of work getting the chart awesome will take 80% of your time.</p>
+</section>    
+
+<section>
+<h2>Good Workflow</h2>
+<ol>
+  <li>Create visual with mock data in separate html file</li>
+  <li>Finalize data format</li>
+  <li>Test your components output data in correct format</li>
+  <li>Wire your data to your visual</li>
+</ol>
+</section>  
+
+<section>
+  <h2>Lines of Code</h2>
+  <ul>
+    <li>D3 can result in a large number of lines of code</li>
+    <li>But the code is simple once you understand the pattern.</li>
+  </ul>
+</section>     
+
+<section>
+  <h2>Working with D3</h2>
+  <p>It is awesome telling clients and designers:</p>
+  <strong>Yes I can do that.</strong>
+  <p>Other charting libraries might get a chart out faster but few can compete with D3's flexibility.</p>      
+</section>
+
+<section>
+  <h2>Other libraries</h2>  
+  <ul>
+    <li><a href="http://www.highcharts.com/">High Charts</a></li>
+    <li><a href="http://raphaeljs.com/" target="_blank">Rafael</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Licensing</h2>
+  <p>BSD-3-Clause</p>
+  <p>Commerical use approved</p>
+</section>
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Wrap up
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ --> 
+
+<section>
+  <h2>Continue your learning...</h2>
+</section>
+
+<section>
+  <h2>D3.js</h2>
+  <p><a href="http://d3js.org/">http://d3js.org/</a></p>
+  <p><a href="https://github.com/mbostock/d3">https://github.com/mbostock/d3</a></p>
+</section>
+
+<section>
+  <h2>My Slides</h2>
+  <p><a href="https://github.com/RookieOne/D3.js--slides">https://github.com/RookieOne/D3.js--slides</a></p>
+</section>
+
+<section>
+  <h2>Reveal.js</h2>
+  <p><a href="http://lab.hakim.se/reveal-js/#/">http://lab.hakim.se/reveal-js/#/</a></p>
+</section>
+
+<section>
+  <h2>Thanks! Any Questions?</h2>
+</section>
+
+    </div>
+
 <!-- The navigational controls UI -->
 <aside class="controls">
   <a class="left" href="#">&#x25C4;</a>
@@ -990,9 +1035,8 @@ var data = {
 
 <!-- Presentation progress bar -->
 <div class="progress"><span></span></div>
-          
-    </div>
 
+</div>
     <script src="libraries/head.min.js"></script>
 
     <script>
