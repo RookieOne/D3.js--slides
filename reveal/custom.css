@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
+
 svg {
   border: 1px solid #CCC;
   padding: 25px;
+  background: #ddd;
 }
 
 .usa {
@@ -52,7 +54,53 @@ p {
 
 pre.prettyprint {
   border: 0px solid #333;
-  background: #eee;
+  
+  font-family: 'Coming Soon', cursive;
+  text-align: left;
+}
+
+/*red : #9d261d*/
+/*yellow: #ffc40d*/
+/*green:#46a546*/
+/*blue: #049cbd*/
+
+
+pre.prettyprint .kwd {
+  color: #049cbd;
+}
+
+pre.prettyprint .pln {
+  color: #fff;
+}
+
+pre.prettyprint .pun {
+  color: #fff;
+}
+
+pre.prettyprint .lit {
+  color: #ffc40d;
+}
+
+pre.prettyprint .str {
+  color:#46a546;
+}
+
+pre.prettyprint .com {
+  color: #9d261d;
+}
+
+table {
+  text-align: center;
+}
+
+table tr th {
+  border: 1px solid #fff;
+  padding: 16px;
+}
+
+table tr td {
+  border: 1px solid #fff;
+  padding: 16px;
 }
 
 /**
@@ -247,7 +295,7 @@ body {
     content: '”';
   }
 
-.reveal pre {
+/*.reveal pre {
   display: block;
   position: relative;
   width: 95%;
@@ -260,8 +308,8 @@ body {
 
   word-wrap: break-word;
 
-  /*box-shadow: 0px 0px 6px rgba(0,0,0,0.3);*/
-}
+  /*box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+}*/
 
 .reveal code {
   font-family: monospace;

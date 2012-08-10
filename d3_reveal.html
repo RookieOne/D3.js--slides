@@ -2,6 +2,7 @@
 <!-- saved from url=(0065)http://html5slides.googlecode.com/svn/trunk/template/index.html#1 -->
 <html>
 <head>
+    <title>D3.js</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
     <meta charset="utf-8">
@@ -69,13 +70,13 @@
 <!-- What is D3 -->
 <section class="center-slide">
   <h2>What is D3.js?</h2>
-  <p><strong>D3</strong> is a JavaScript library for manipulating documents based on data.</p>
+  <p class="fragment"><strong>D3</strong> is a JavaScript library for manipulating documents based on data.</p>
 </section>
 
 <!-- So Charts -->
 <section class="center-slide">
   <h2>So Charts?</h2>            
-  <p>Yes... and no.</p>
+  <p class="fragment">Yes... and no.</p>
 </section>               
 
 
@@ -149,6 +150,7 @@ var data = [
 <!-- Add Headers -->
 <section>
 <section>
+  <p>Add Headers</p>
     <pre class="prettyprint">
     d3.select("#table-id")
         .append("tr")
@@ -161,14 +163,15 @@ var data = [
         });</pre>  
 </section> 
 <section>
-<div id="makeTable-addHeaders"> 
-</div>
+<table id="makeTable-addHeaders"> 
+</table>
 </section> 
 </section>
 
 <!-- Add Rows -->
 <section>
 <section>
+  <p>Add Row</p>
     <pre class="prettyprint">
 d3.select("#table-id")
 .append("tr")
@@ -182,13 +185,14 @@ d3.select("#table-id")
 </section>
 
 <section>   
-<div id="makeTable-addRow" class="step" data-x="3000" data-y="3400"> 
-</div>   
+<table id="makeTable-addRow">
+</table>   
 </section>
 </section>
 
 <section class="center-slide">
   <p>With our data, we built a table.</p>
+  <p class="fragment">Amazing. Yet true.</p>
 </section>
 
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -199,11 +203,11 @@ Bar Chart
 
 <!-- More than a charting library -->
 <section>
-    <h2><strong>D3</strong> is more than a charting library</h2>
-    <p class="fragment">... now let's make a chart</p>
+  <h2><strong>D3</strong> is more than a charting library</h2>
+  <p class="fragment">... now let's make a chart</p>
 </section>  
 
-<section>
+<section class="center-slide">
     <h2>Making a Bar Chart</h2>
 </section>  
 
@@ -212,10 +216,10 @@ Bar Chart
     <pre class="prettyprint">
 // let's use the same data
 var data = [
-{ stat:"strength", value:400 },
-{ stat:"dexterity", value:1000 },
-{ stat:"intelligence", value:450 },
-{ stat:"vitality", value:600 }
+  { stat: "strength", value: 400 },
+  { stat: "dexterity", value: 1000 },
+  { stat: "intelligence", value: 450 },
+  { stat: "vitality", value: 600 }
 ];</pre>
 </section> 
 
@@ -282,16 +286,16 @@ var rangeValue = scaleFx(category);</pre>
 
 <!-- Set Scale Fxs -->
 <section>
-    <pre class="prettyprint">
-// create X Scale function
+  <p>Create X Scale</p>
+<pre class="prettyprint">
 var x = d3.scale.linear()
     .domain([0, max])
     .range([margin, width]);</pre>
 </section>
 
 <section>
-    <pre class="prettyprint">
-// create Y Scale function
+  <p>Create Y Scale</p>
+<pre class="prettyprint">
 var y = d3.scale.linear()
     .domain([0, 3])
     .range([0, height - barHeight - barMargin]);</pre>
@@ -300,8 +304,8 @@ var y = d3.scale.linear()
 <!-- Add Basic Bars -->
 <section>
 <section>
-    <pre class="prettyprint">
-// create bars
+  <p>Create bars</p>
+<pre class="prettyprint">
 g.selectAll(".bars")
     .data(data)
     .enter()
@@ -326,19 +330,16 @@ g.selectAll(".bars")
 <!-- Add Bars -->
 <section>
 <section>
-    <pre class="prettyprint">
-// add class to bars
+  <p>Add class to bars</p>
+<pre class="prettyprint">
 g.selectAll(".bars")
-    .data(data)
-    .enter()
+    .data(data).enter()
     .append("svg:rect")
     .attr("class", function(d) {
-        return "bars " + d.stat;
+      return "bars " + d.stat;
     })            
     .attr("x", x(0))
-    .attr("y", function(d, i) {
-        return y(i);
-    })
+    .attr("y", function(d, i) { return y(i); })
     .attr("width", function(d) {
         return x(d.value) - margin;
     })
@@ -346,7 +347,7 @@ g.selectAll(".bars")
 </section>
 
 <section>
-  <div id="barChart-addBars" class="step" data-x="5250" data-y="4100">            
+  <div id="barChart-addBars">
   </div>
 </section>
 </section>
@@ -354,14 +355,14 @@ g.selectAll(".bars")
 <!-- X Axis -->
 <section>
 <section>
+  <p>X-Axis</p>
   <pre class="prettyprint">
-    // x-axis
-    g.append("svg:line")
-        .attr("x1", x(0))
-        .attr("x2", x(max))
-        .attr("y1", height + 5)
-        .attr("y2", height + 5)
-        .attr("class", "x-axis");</pre>
+g.append("svg:line")
+    .attr("x1", x(0))
+    .attr("x2", x(max))
+    .attr("y1", height + 5)
+    .attr("y2", height + 5)
+    .attr("class", "x-axis");</pre>
 </section>
 
 <section>
@@ -373,19 +374,14 @@ g.selectAll(".bars")
         <!-- X Ticks -->
 <section>
 <section>
+  <p>X Ticks</p>
     <pre class="prettyprint">
-// x-ticks
 g.selectAll("x-tick")
-    .data(x.ticks(5))
-    .enter()
+    .data(x.ticks(5)).enter()
     .append("svg:line")
     .attr("class", "tick")
-    .attr("x1", function(d) {
-        return x(d)
-    })
-    .attr("x2", function(d) {
-        return x(d)
-    })
+    .attr("x1", function(d) { return x(d) })
+    .attr("x2", function(d) { return x(d) })
     .attr("y1", height + 5)
     .attr("y2", height);</pre>
 </section>
@@ -399,19 +395,15 @@ g.selectAll("x-tick")
 <!-- X Labels -->
 <section>
 <section>
+  <p>X Labels</p>
 <pre class="prettyprint">
-// x-labels
 g.selectAll("x-label")
     .data(x.ticks(5))
     .enter()
     .append("svg:text")
     .attr("class", "x-label")
-    .text(function(d) {
-        return d;
-    })
-    .attr("x", function(d) {
-        return x(d);
-    })
+    .text(function(d) { return d; })
+    .attr("x", function(d) { return x(d); })
     .attr("y", height + 25)
     .attr("text-anchor", "middle");</pre>
 </section>  
@@ -426,19 +418,15 @@ g.selectAll("x-label")
 <!-- Bar Labels -->
 <section>
 <section>
+  <p>Bar labels</p>
   <pre class="prettyprint">
-// bar labels
 g.selectAll("bar-label")
     .data(data)
     .enter()
     .append("svg:text")
-    .text(function(d) {
-        return d.stat;
-    })
+    .text(function(d) { return d.stat; })
     .attr("class", "bar-label")
-    .attr("x", function(d) {
-        return x(15);
-    })
+    .attr("x", function(d) { return x(15); })
     .attr("y", function(d, i) {
         return y(i) + (barHeight / 2) + 5;
     });</pre>
@@ -453,15 +441,12 @@ g.selectAll("bar-label")
 <!-- Stat Labels -->
 <section>
 <section>
+  <p>Stat Labels</p>
   <pre class="prettyprint">
-    // stat labels
     g.selectAll(".stat-label")
-        .data(data)
-        .enter()
+        .data(data).enter()
         .append("svg:text")
-        .text(function(d) {
-            return d.value;
-        })
+        .text(function(d) { return d.value; })
         .attr("class", "stat-label")
         .attr("x", function(d) {
             return x(d.value) - 10;
@@ -484,7 +469,7 @@ g.selectAll("bar-label")
 </section>
 
 <section>
-  <pre class="prettyprint">
+  <pre class="prettyprint" style="font-size: 30px;line-height:34px">
 var data = {
   "barb": [{ stat:"strength", value:900 },
            { stat:"dexterity", value:400 },
@@ -507,13 +492,12 @@ var data = {
 
 <section>
 <section>
+  <p>Transition bars</p>
 <pre class="prettyprint">
-// transition bars
-var duration = 2000;
 g.selectAll(".bars")
     .data(data)
     .transition()
-    .duration(duration)
+    .duration(2000)
     .attr("width", function(d) {
         return x(d.value) - margin;
     });</pre>
@@ -533,20 +517,19 @@ g.selectAll(".bars")
         <!-- Transition Labels-->
 <section>
 <section>
+  <p>Transition labels</p>
         <pre class="prettyprint">
-// transition stat labels
-var duration = 2000;
 g.selectAll(".stat-label")
     .data(data)
     .transition()
-    .duration(duration)
+    .duration(2000)
     .attr("x", function(d) {
-        return x(d.value) - 10;
+      return x(d.value) - 10;
     })
     .text(function(d) {
-            return d.value;
+      return d.value;
     });</pre>
-    </section>
+</section>
 
 <section>
     <button data-set="barb" onclick="barChart.transition('#barChart-label-transitions', 'barb')">Barbarian</button>
@@ -577,22 +560,23 @@ Line Chart
 </section>
       
 <section>
+  <p>Our data</p>
 <pre class="prettyprint">
-// setting up our data
+
 var data = [
-    { date:Date.parse("4/6/2012"), hours:3 },
-    { date:Date.parse("4/16/2012"), hours:4 },
-    { date:Date.parse("4/26/2012"), hours:2 },
-    { date:Date.parse("5/6/2012"), hours:5 },
-    { date:Date.parse("5/26/2012"), hours:3 },
-    { date:Date.parse("5/30/2012"), hours:6 }
+    { date: Date.parse("4/6/2012"),  hours: 3 },
+    { date: Date.parse("4/16/2012"), hours: 4 },
+    { date: Date.parse("4/26/2012"), hours: 2 },
+    { date: Date.parse("5/6/2012"),  hours: 5 },
+    { date: Date.parse("5/26/2012"), hours: 3 },
+    { date: Date.parse("5/30/2012"), hours: 6 }
 ]</pre>
 </section>  
 
         <!-- Set X Scale -->
 <section>
+  <p>X Scale</p>
 <pre class="prettyprint">
-// setup X Scale
 var startDate = Date.parse("4/1/2012");
 var endDate = Date.parse("5/30/2012");
 
@@ -603,8 +587,8 @@ var x = d3.time.scale()
 
 <!-- Set Y Scale -->
 <section>
+  <p>Y Scale</p>
 <pre class="prettyprint">
-// setup Y Scale
 var y = d3.scale.linear()
     .domain([0, 6])
     .range([height, margin]);</pre>
@@ -613,8 +597,8 @@ var y = d3.scale.linear()
 <!-- Line -->
 <section>
 <section>
+  <p>Line</p>
 <pre class="prettyprint">
-// create line
 var line = d3.svg.line()
             .x(function(d) {
                 return x(d.date);
@@ -636,8 +620,8 @@ g.append("svg:path")
 <!-- X Axis -->
 <section>
 <section>
+  <p>X Axis</p>
 <pre class="prettyprint">
-// add X Axis
 var xAxis = d3.svg.axis()
     .orient("bottom")
     .scale(x)
@@ -645,7 +629,11 @@ var xAxis = d3.svg.axis()
     .tickSize(6, 3, 1)
     .ticks(d3.time.weeks, 1)
     .tickFormat(d3.time.format("%m/%d"));
-
+</pre>
+</section>
+<section>
+  <p>Draw X Axis</p>
+<pre class="prettyprint">  
 g.append("svg:g")
         .attr("class", "x-axis")
         .attr("width", width)
@@ -662,14 +650,17 @@ g.append("svg:g")
 <!-- Y Axis -->
 <section>
 <section>
+  <p>Y Axis</p>
 <pre class="prettyprint">
-// add Y Axis
 var yAxis = d3.svg.axis()
         .orient("left")
         .ticks(3)
         .tickSize(6,1)
-        .scale(y);
-
+        .scale(y);</pre>
+</section>
+<section>
+  <p>Draw Y Axis</p>
+<pre class="prettyprint">
 g.append("svg:g")
         .attr("class", "y-axis")
         .attr("transform", "translate(" + margin + ",0)")
@@ -686,8 +677,8 @@ g.append("svg:g")
 <!-- Add Points -->
 <section>
 <section>
+  <p>Add Points</p>
 <pre class="prettyprint">
-// add points
 g.selectAll(".trade-point")
         .data(data)
         .enter()
@@ -713,13 +704,13 @@ Tree Layout
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
 
-<section>
+<section class="center-slide">
   <h2>Using Layouts</h2>
 </section>
 
 <section>
-<pre class="prettyprint">
-// our data
+  <p>Our Data</p>
+<pre class="prettyprint" style="font-size:28px;line-height:32px">
 var data = {
   name: "Foobar, Inc.",
   children: [ {
@@ -738,8 +729,8 @@ var data = {
 </section>     
 
 <section>
+  <p>Create svg</p>
 <pre class="prettyprint">
-// create svg
 var g = d3.select("#tree-chart")
             .append("svg:svg")
             .attr("width", width + margin)
@@ -749,9 +740,10 @@ var g = d3.select("#tree-chart")
 </section>
 
 <section>
+  <p>Tree Layout</p>
 <pre class="prettyprint">
-// setup layout
-var tree = d3.layout.tree().size([width - margin, height - margin]);
+var tree = d3.layout.tree()
+            .size([width - margin, height - margin]);
 var nodes = tree.nodes(data);
 var links = tree.links(nodes);
 var diagonal = d3.svg.diagonal()
@@ -763,8 +755,8 @@ var diagonal = d3.svg.diagonal()
 
 <section>
 <section>
-<pre class="prettyprint"> 
-// add nodes       
+  <p>Nodes</p>
+<pre class="prettyprint">  
 var node = g.selectAll("g.node")
         .data(nodes)
         .enter()
@@ -777,15 +769,15 @@ node.append("svg:circle")
         .attr("r", 3.5);</pre>
 </section>  
 <section>   
-<div id="tree-addNodes" class="step" data-x="12750" data-y="1850">
+<div id="tree-addNodes">
 </div> 
 </section>
 </section>
 
 <section>
 <section>
-<pre class="prettyprint"> 
-// add node labels       
+  <p>Node labels</p>
+<pre class="prettyprint">  
 node.append("svg:text")
   .attr("class", "node-label")
   .attr("dx", 10)
@@ -794,7 +786,7 @@ node.append("svg:text")
 </section>  
 
 <section>   
- <div id="tree-addNodeLabels" class="step" data-x="12600" data-y="2450">        
+ <div id="tree-addNodeLabels">
 </div> 
 </section>
 </section>
@@ -802,8 +794,8 @@ node.append("svg:text")
 
 <section>
 <section>
+  <p>Links</p>
 <pre class="prettyprint"> 
-// add links
 g.selectAll("pathlink")
       .data(links)
       .enter()
@@ -855,8 +847,8 @@ Using SVG Maps
 </section>
 
 <section>
-<pre class="prettyprint"> 
-// our data
+  <p>Our data</p>
+<pre class="prettyprint" style="font-size:28px;line-height:32px"> 
 var data = [{ state:"TX", value:65 },
             { state:"WA", value:54 },
             { state:"CA", value:25 },
@@ -874,8 +866,8 @@ var data = [{ state:"TX", value:65 },
 
 <section>
 <section>
+  <p>Opacity</p>
 <pre class="prettyprint">
-// set opacity in states
 var opacity = d3.scale.linear().domain([0,100]).range([.5, 1]);
 for(var i in data) {
     var d = data[i];
@@ -895,9 +887,12 @@ for(var i in data) {
 
 <section>
 <section>
+  <p>Color</p>
 <pre class="prettyprint">
-// set color to states
-var color = d3.scale.linear().domain([0,100]).range(["#000000", "#0000FF"]);
+var color = d3.scale.linear()
+              .domain([0,100])
+              .range(["#000000", "#0000FF"]);
+
 for(var i in data) {
     var d = data[i];
     d3.selectAll("#" + d.state)
@@ -917,9 +912,12 @@ for(var i in data) {
 
 <section>
 <section>
+  <p>Color Brewer</p>
 <pre class="prettyprint">
-// using color brewer
-var color = d3.scale.ordinal().domain([0,100]).range(colorbrewer.Blues[9]);
+var color = d3.scale.ordinal()
+              .domain([0,100])
+              .range(colorbrewer.Blues[9]);
+
 for(var i in data) {
     var d = data[i];
     d3.selectAll("#" + d.state)
@@ -936,6 +934,11 @@ for(var i in data) {
 </section>
 </section>
 
+<section>
+  <h2>What about color blindness?!</h2>
+  <p class="fragment">ColorBrewer's colors are color blind friendly</p>
+</section>
+
 
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -950,40 +953,43 @@ Final Comments
 <section>
   <h2>80/20</h2>
   <p>80% of the chart will be done in 20% of the time.</p>
+  <br />
   <p>The last 20% of work getting the chart awesome will take 80% of your time.</p>
 </section>    
 
 <section>
 <h2>Good Workflow</h2>
 <ol>
-  <li>Create visual with mock data in separate html file</li>
-  <li>Finalize data format</li>
-  <li>Test your components output data in correct format</li>
-  <li>Wire your data to your visual</li>
+  <li class="fragment">Create visual with mock data in separate html file</li>
+  <li class="fragment">Finalize data format</li>
+  <li class="fragment">Test your components output data in correct format</li>
+  <li class="fragment">Wire your data to your visual</li>
 </ol>
 </section>  
 
 <section>
   <h2>Lines of Code</h2>
-  <ul>
-    <li>D3 can result in a large number of lines of code</li>
-    <li>But the code is simple once you understand the pattern.</li>
-  </ul>
+  <p>D3 can result in a large number of lines of code</p>
+  <p class="fragment">But the code is simple once you understand the pattern.</p>
 </section>     
 
 <section>
   <h2>Working with D3</h2>
   <p>It is awesome telling clients and designers:</p>
-  <strong>Yes I can do that.</strong>
+</section>
+
+<section class="center-slide">
+  <h2><strong>Yes I can do that.</strong></h2>
+</section>
+
+<section class="center-slide">  
   <p>Other charting libraries might get a chart out faster but few can compete with D3's flexibility.</p>      
 </section>
 
 <section>
   <h2>Other libraries</h2>  
-  <ul>
-    <li><a href="http://www.highcharts.com/">High Charts</a></li>
-    <li><a href="http://raphaeljs.com/" target="_blank">Rafael</a></li>
-  </ul>
+  <h3><a href="http://www.highcharts.com/">High Charts</a></h3>
+  <h3><a href="http://raphaeljs.com/" target="_blank">Rafael</a></h3>
 </section>
 
 <section>
