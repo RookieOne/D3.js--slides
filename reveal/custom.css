@@ -1,10 +1,14 @@
 @charset "UTF-8";
 
+a {
+  line-height: 60px;
+  color: #2233AA;
+}
 
 svg {
-  border: 1px solid #CCC;
+  border: 1px solid #666;
   padding: 25px;
-  background: #ddd;
+  /*background: #ddd;*/
 }
 
 .usa {
@@ -70,11 +74,11 @@ pre.prettyprint .kwd {
 }
 
 pre.prettyprint .pln {
-  color: #fff;
+  color: #333;
 }
 
 pre.prettyprint .pun {
-  color: #fff;
+  color: #333;
 }
 
 pre.prettyprint .lit {
@@ -94,12 +98,12 @@ table {
 }
 
 table tr th {
-  border: 1px solid #fff;
+  border: 1px solid #333;
   padding: 16px;
 }
 
 table tr td {
-  border: 1px solid #fff;
+  border: 1px solid #333;
   padding: 16px;
 }
 
@@ -147,9 +151,9 @@ body {
   font-size: 36px;
   font-weight: 200;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: #333;
 
-  background: #111;
+  background: #eee;
   /*background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM1NTVhNWYiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMWMxZTIwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICA8L3JhZGlhbEdyYWRpZW50PgogIDxyZWN0IHg9Ii01MCIgeT0iLTUwIiB3aWR0aD0iMTAxIiBoZWlnaHQ9IjEwMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);*/
   /*background: -moz-radial-gradient(center, ellipse cover,  rgba(85,90,95,1) 0%, rgba(28,30,32,1) 100%);*/
   /*background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(85,90,95,1)), color-stop(100%,rgba(28,30,32,1)));*/
@@ -166,8 +170,6 @@ body {
 .reveal h2, 
 .reveal h3, 
 .reveal h4 {
-
-  color: #fff;
   
   line-height: 0.9em;
   letter-spacing: 0.02em;
@@ -353,14 +355,14 @@ body {
   }
 
 .reveal a:not(.image) {
-  color: hsl(185, 85%, 50%);
+  /*color: hsl(185, 85%, 50%);*/
   text-decoration: none;
-
+/*
   -webkit-transition: color .15s ease;
      -moz-transition: color .15s ease;
       -ms-transition: color .15s ease;
        -o-transition: color .15s ease;
-          transition: color .15s ease;
+          transition: color .15s ease;*/
 }
   
   .reveal a:not(.image):hover {
@@ -391,9 +393,9 @@ body {
     background: rgba(255,255,255,0.2);
     border-color: #13DAEC;
     
-    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+/*    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
        -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);*/
   }
 
 
@@ -486,7 +488,7 @@ body {
 
     vertical-align: top;
 
-    -webkit-perspective: 400px;
+/*    -webkit-perspective: 400px;
        -moz-perspective: 400px;
         -ms-perspective: 400px;
             perspective: 400px;
@@ -494,7 +496,7 @@ body {
     -webkit-perspective-origin: 50% 50%;
        -moz-perspective-origin: 50% 50%;
         -ms-perspective-origin: 50% 50%;
-            perspective-origin: 50% 50%;
+            perspective-origin: 50% 50%;*/
 }
   .reveal .roll:hover {
     background: none;
@@ -507,7 +509,7 @@ body {
 
   pointer-events: none;
 
-    -webkit-transition: all 400ms ease;
+/*    -webkit-transition: all 400ms ease;
        -moz-transition: all 400ms ease;
         -ms-transition: all 400ms ease;
             transition: all 400ms ease;
@@ -520,15 +522,15 @@ body {
     -webkit-transform-style: preserve-3d;
        -moz-transform-style: preserve-3d;
         -ms-transform-style: preserve-3d;
-            transform-style: preserve-3d;
+            transform-style: preserve-3d;*/
 }
     .reveal .roll:hover span {
-        background: rgba(0,0,0,0.5);
-
+        /*background: rgba(0,0,0,0.5);*/
+/*
         -webkit-transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
            -moz-transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
             -ms-transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
-                transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );
+                transform: translate3d( 0px, 0px, -45px ) rotateX( 90deg );*/
     }
 .reveal .roll span:after {
     content: attr(data-title);
