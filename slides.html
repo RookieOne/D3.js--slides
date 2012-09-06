@@ -37,6 +37,8 @@
     <script src="./examples/lineChart.js"></script>
     <link href="./stylesheets/lineChart.css" rel="stylesheet" />
 
+    <script src="./examples/pieChart.js"></script>
+
     <script src="./examples/treeLayout.js"></script>
     <link href="./stylesheets/treeLayout.css" rel="stylesheet" />
 
@@ -58,7 +60,7 @@
     <h3>I'm Jonathan Birkholz</h3>
     <a href="https://github.com/rookieone">https://github.com/rookieone</a>
     <div class="fragment subsection">
-      <h3>Free lance rubyist</h3>
+      <h3>Freelance rubyist</h3>
       <a href="http://www.birkholzcreative.com">http://www.birkholzcreative.com</a>
     </div>
     <div class="fragment subsection">
@@ -201,30 +203,28 @@ d3.select("#table-id")
     <pre class="prettyprint">
 var scaleFx = d3.scale.linear()
 .domain([0, 100])
-.range([min, max]);
+.range([10, 20]);
 
-var scaledvalue = scaleFx(domainValue);</pre>
-</section>
-
-<section>
-    <table id="linear-scale" style="font-size:36px">
-    </table>
+var scaledvalue = scaleFx(domainValue);
+scaleFx(0);    // 10
+scaleFx(50);  // 15
+scaleFx(100); // 20
+</pre>
 </section>
 
 <!-- Ordinal Scale -->
 <section>
     <pre class="prettyprint">
 var scaleFx = d3.scale.ordinal()
-    .domain([categories])
+    .domain(["Archer", "Kirk", "Picard", "Sisko", "Janeway"])
     .range([5,7,9,13,23]);
 
-var rangeValue = scaleFx(category);</pre>
+var rangeValue = scaleFx(category);
+scaleFx("Archer"); // 5
+scaleFx("Picard"); // 9
+scaleFx("Sisko");  // 13
+</pre>
 </section>    
-
-<section>
-    <table id="ordinal-scale" style="font-size:36px">
-    </table>
-</section>
 
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -658,13 +658,106 @@ g.selectAll(".point")
 
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-Tree Layout
+Pie Layout
 
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
 
 <section class="center-slide">
   <h2>Using Layouts</h2>
 </section>
+
+<section class="center-slide">
+  <h2>3.14159265359... Chart</h2>
+</section>
+
+<section>
+  <p>Our Data</p>
+<pre class="prettyprint">
+var data = [
+        { percent: 80, label: "Made up stats"},
+        { percent: 20, label: "Scary truth"}
+  ];</pre>
+</section> 
+
+<section>
+  <p>Create svg</p>
+<pre class="prettyprint">
+  var g = d3.select("#pie-chart")
+      .append("svg:svg")
+      .attr("class", "pie-chart")
+      .attr("width", pieChart.width)
+      .attr("height", pieChart.height)
+      .append("svg:g");</pre>
+</section> 
+
+<section>   
+  <div id="pie-createChart"></div> 
+</section>
+
+<section>
+  <p>Create layout & color fxs</p>
+<pre class="prettyprint">
+  var pie = d3.layout.pie()
+    .value(function(d) { 
+      return d.percent; 
+    });
+
+  var arc = d3.svg.arc()
+    .innerRadius(0)
+    .outerRadius(200);
+
+  var color = d3.scale.category10();
+</pre>
+</section> 
+
+<section>
+  <p>Draw arcs</p>
+<pre class="prettyprint">
+  var arcsG = g.append("svg:g")
+    .attr("class", "arcs")
+    .attr("transform", "translate(" + width/2 + "," + height/2 + ")");
+
+  arcsG.selectAll("path")
+    .data(pie(data))
+    .enter()
+    .append("svg:path")
+    .attr("d", arc)        
+    .attr("class", "pie-section")
+    .attr("fill", function(d,i) { return color(i); });  
+</pre>
+</section> 
+
+<section>   
+  <div id="pie-normalChart"></div> 
+</section>
+
+<section>
+  <p>Change inner radius</p>
+<pre class="prettyprint">
+  var arc = d3.svg.arc()
+    .innerRadius(100)
+    .outerRadius(200);
+</pre>
+</section> 
+
+<section>   
+  <div id="pie-doughnutChart"></div> 
+</section>
+
+<section class="center-slide">
+  <h2>Mm... doughnuts</h2>
+</section>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+Tree Layout
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->  
+
+<section class="center-slide">
+  <h2>Making a tree</h2>
+</section>
+
 
 <section>
   <p>Our Data</p>
@@ -1060,7 +1153,8 @@ head.js('libraries/prettify.js', function() {
         
         barChart.setupSlides();      
         lineChart.setupSlides();
-        treeLayout.setupSlides();        
+        treeLayout.setupSlides();    
+        pieChart.setupSlides();    
 
         // @@@@@@@@@@@@@@@@@@@@@
     </script>

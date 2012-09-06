@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Pie Chart</title>
+    <script src=".././libraries/jquery-1.7.2.min.js"></script>
+    <script src=".././libraries/d3.v2.js"></script>
+    <link href=".././stylesheets/reset.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
+
+    <script src=".././examples/pieChart.js"></script>
+    
+
+    <script type="text/javascript">
+        $(function() {
+            pieChart.createSvgGraph("#pie-chart");
+            
+            pieChart.createPieFxs();
+            pieChart.drawArcs();            
+        });
+
+    </script>    
+</head>
+<body style="padding-top:60px;padding-left:40px">
+
+<div id="pie-chart"></div>
+
+</body>
+</html>
