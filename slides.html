@@ -656,6 +656,90 @@ g.selectAll(".point")
     <h2>We rock!</h2>
 </section>        
 
+<section class="center-slide">
+    <h2>Combo Time</h2>
+</section>        
+
+<section>
+  <p>More data</p>
+<pre class="prettyprint">
+
+var moneyData: [
+  { date:Date.parse("4/6/2012"),  revenue:310 },
+  { date:Date.parse("4/16/2012"), revenue:601 },
+  { date:Date.parse("4/26/2012"), revenue:102 },
+  { date:Date.parse("5/6/2012"),  revenue:357 },
+  { date:Date.parse("5/26/2012"), revenue:356 },
+  { date:Date.parse("5/30/2012"), revenue:890 }
+]</pre>
+</section>  
+
+<section>
+  <p>Money Y Scale</p>
+<pre class="prettyprint">
+var revenues = moneyData.map(function(d) { 
+  return d.revenue; 
+});
+
+var max = d3.max(revenues);
+
+var moneyScaleY = d3.scale.linear()
+  .domain([0, max])
+  .range([height, margin]);
+</pre>
+</section>
+
+<section>
+  <p>Money Y Axis</p>
+<pre class="prettyprint" style="font-size: 30px;line-height:34px">
+  var moneyAxis = d3.svg.axis()
+      .orient("right")
+      .ticks(6)
+      .tickSize(6,1)
+      .scale(moneyScaleY)
+      .tickFormat(function(d) {
+          return "$" + d3.format(",.0f")(d);
+      });
+
+  g.append("svg:g")
+      .attr("class", "y-axis")
+      .attr("transform", "translate(" + (width - margin) + ",0)")
+      .call(moneyAxis);
+</pre>
+</section>
+
+<section>        
+<div id="lineChart-moneyAxis">
+</div> 
+</section>
+
+<section>
+  <p>Draw Money Bars</p>
+<pre class="prettyprint" style="font-size: 30px;line-height:34px">
+g.svgGraph.selectAll(".money-bars")
+    .data(moneyData)
+    .enter()
+    .append("svg:rect")
+    .attr("x", function(d) {
+        return scaleX(d.date) - (barWidth/2);
+    })
+    .attr("y", function(d) {
+        return moneyScaleY(d.revenue);
+    })
+    .attr("height", function(d) {
+        return height - moneyScaleY(d.revenue);
+    })
+    .attr("width", barWidth)
+    .attr("fill", "#049cbd")
+    .attr("opacity", 0.5);
+</pre>
+</section>
+
+<section>        
+<div id="lineChart-moneyBars">
+</div> 
+</section>
+
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 Pie Layout

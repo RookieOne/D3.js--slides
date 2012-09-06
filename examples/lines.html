@@ -6,8 +6,7 @@
     <script src=".././libraries/jquery-1.7.2.min.js"></script>
     <script src=".././libraries/d3.v2.js"></script>
     <link href=".././stylesheets/reset.css" rel="stylesheet" />
-    <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
-    <link href=".././stylesheets/my_impress.css" rel="stylesheet" />    
+    <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>   
 
     <script src=".././examples/lineChart.js"></script>
     <link href=".././stylesheets/lineChart.css" rel="stylesheet" />
@@ -16,9 +15,15 @@
         $(function() {
             lineChart.createSvgGraph("#line-chart");
             lineChart.createScales();
-            lineChart.addLine();
+            
             lineChart.addXaxis();
             lineChart.addYaxis();  
+            
+            lineChart.createMoneyScale();
+            lineChart.drawMoneyBars();
+            lineChart.drawMoneyAxis();
+
+            lineChart.addLine();
             lineChart.addPoints();  
         });
 
